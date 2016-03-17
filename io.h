@@ -10,3 +10,13 @@
 void outb(unsigned short port, unsigned char data);
 
 #endif /* INCLUDE_IO_H */
+
+/* in file io.h */
+
+/** inb:
+ *  Read a byte from an I/O port.
+ *
+ *  @param  port The address of the I/O port
+ *  @return      The read byte
+ */
+unsigned char inb(unsigned short port);
