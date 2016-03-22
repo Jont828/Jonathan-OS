@@ -52,6 +52,15 @@
 #define SERIAL_LINE_ENABLE_DLAB         0x80
 
 
+
+struct gdt {
+    unsigned int address;
+    unsigned short size;
+} __attribute__((packed));
+
+
+
+
 void kmain(void); // early version of main(), doesn't do argc and argv[] yet, also need to call manually in loader.s since there's no OS to call it
 
 int sum_of_three(int arg1, int arg2, int arg3);
@@ -270,14 +279,10 @@ void serial_write(unsigned int com, char *buffer)
     serial_configure_baud_rate(com, 3);
     serial_configure_line(com);
 
-    fb_write(buffer, 80);
-
     while(!serial_is_transmit_fifo_empty(com))
         ;
 
     int len = mystrlen(buffer);
-
-    fb_write_num(len, 90, 10);
 
     int i;
     for(i=0; i<len; i++) {
@@ -285,10 +290,12 @@ void serial_write(unsigned int com, char *buffer)
     }
 }
 
+
+
 void kmain(void)
 {
     char text[] = "Hello, kernel world!";
-    char serial[] = "Hello, serial port world!\n";
+    char serial[] = "Hello, com1!\n";
 
     fb_write(text, 0);
     serial_write(SERIAL_COM1_BASE, serial);

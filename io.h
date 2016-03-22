@@ -20,3 +20,8 @@ void outb(unsigned short port, unsigned char data);
  *  @return      The read byte
  */
 unsigned char inb(unsigned short port);
+
+
+// SEGMENTATION CODE
+
+void load_gdt(void);
