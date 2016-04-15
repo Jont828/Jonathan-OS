@@ -25,6 +25,7 @@ struct gdt_ptr gp;
 
 /* This will be a function in start.asm. We use this to properly
 *  reload the new segment registers */
+// loader.s not start.asm
 extern void gdt_flush();
 
 /* Setup a descriptor in the Global Descriptor Table */

@@ -1,4 +1,5 @@
 #include "io.h" /* io.h is implement in the section "Moving the cursor" */
+#include "gdt.h" // from Bran's tutorial
 
 /* The I/O ports */
 #define FB_COMMAND_PORT         0x3D4
@@ -290,12 +291,12 @@ void serial_write(unsigned int com, char *buffer)
     }
 }
 
-
-
 void kmain(void)
 {
     char text[] = "Hello, kernel world!";
     char serial[] = "Hello, com1!\n";
+
+    gdt_install();
 
     fb_write(text, 0);
     serial_write(SERIAL_COM1_BASE, serial);
