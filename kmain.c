@@ -1,5 +1,8 @@
+#include "system.h"
+
 #include "io.h" /* io.h is implement in the section "Moving the cursor" */
 #include "gdt.h" // from Bran's tutorial
+#include "idt.h"
 
 /* The I/O ports */
 #define FB_COMMAND_PORT         0x3D4
@@ -61,7 +64,6 @@ struct gdt {
 
 
 
-
 void kmain(void); // early version of main(), doesn't do argc and argv[] yet, also need to call manually in loader.s since there's no OS to call it
 
 int sum_of_three(int arg1, int arg2, int arg3);
@@ -70,7 +72,6 @@ void fb_write_cell(unsigned int i, char c, unsigned char fg, unsigned char bg);
 void fb_move_cursor(unsigned short pos);
 int fb_write(char *buf, int pos);
 int fb_write_num(int num, int pos, int base);
-int mystrlen(char *text);
 char *itoa(int num, char *str, int base);
 void reverse(char str[]);
 
@@ -79,8 +80,6 @@ void serial_configure_line(unsigned short com);
 int serial_is_transmit_fifo_empty(unsigned int com);
 void serial_write_char(unsigned int com, char c);
 void serial_write(unsigned int com, char *buffer);
-
-
 
 
 int sum_of_three(int arg1, int arg2, int arg3)
@@ -132,7 +131,7 @@ int fb_write(char *buf, int pos)
     // }
 
     int i = 0;
-    int len = mystrlen(buf);
+    int len = strlen(buf);
     for(i=0; i<len; i++) {
         fb_write_cell( (pos + i) * 2, buf[i], BLACK, LIGHT_GREY); // changed to ( pos + i ) * 2
         fb_move_cursor(pos + i + 1); // cursor is at the space for the next character
@@ -148,20 +147,11 @@ int fb_write_num(int num, int pos, int base)
     return fb_write(buf, pos);
 }
 
-int mystrlen(char *text)
-{
-    const char *c = text;
-    while(*c)
-        c++;
-
-    return c - text;
-}
-
 void reverse(char str[]) {
-    int len = mystrlen(str);
+    int len = strlen(str);
     char c;
     int i=0;
-    while(i < mystrlen(str) / 2) {
+    while(i < strlen(str) / 2) {
         c = str[i];
         str[i] = str[len-1];
         str[len-1] = c;
@@ -283,7 +273,7 @@ void serial_write(unsigned int com, char *buffer)
     while(!serial_is_transmit_fifo_empty(com))
         ;
 
-    int len = mystrlen(buffer);
+    int len = strlen(buffer);
 
     int i;
     for(i=0; i<len; i++) {
@@ -297,6 +287,7 @@ void kmain(void)
     char serial[] = "Hello, com1!\n";
 
     gdt_install();
+    idt_install();
 
     fb_write(text, 0);
     serial_write(SERIAL_COM1_BASE, serial);
