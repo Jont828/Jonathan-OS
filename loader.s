@@ -25,9 +25,9 @@ align 4                         ; the code must be 4 byte aligned
 ; far jump. A jump that includes a segment as well as an offset.
 ; This is declared in C as 'extern void gdt_flush();'
 global gdt_flush     ; Allows the C code to link to this
-extern gp            ; Says that '_gp' is in another file
+extern gp            ; Says that 'gp' is in another file
 gdt_flush:
-    lgdt [gp]        ; Load the GDT with our '_gp' which is a special pointer
+    lgdt [gp]        ; Load the GDT with our 'gp' which is a special pointer
     mov ax, 0x10      ; 0x10 is the offset in the GDT to our data segment
     mov ds, ax
     mov es, ax
@@ -42,13 +42,13 @@ flush2:
 
 ; IDT code
 
-; Loads the IDT defined in '_idtp' into the processor.
+; Loads the IDT defined in 'idtp' into the processor.
 ; This is declared in C as 'extern void idt_load();'
-;   global idt_load
-;   extern idtp
-;   idt_load:
-;       lidt [idtp]
-;       ret
+  global idt_load
+  extern idtp
+  idt_load:
+      lidt [idtp]
+      ret
 
 ; IDT code
 

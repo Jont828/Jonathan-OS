@@ -2,7 +2,7 @@
 
 #include "io.h" /* io.h is implement in the section "Moving the cursor" */
 #include "gdt.h" // from Bran's tutorial
-#include "idt.h"
+#include "idt.h" // from Bran's tutorial
 
 /* The I/O ports */
 #define FB_COMMAND_PORT         0x3D4
@@ -14,16 +14,16 @@
 
 //DEFINING THE 16 GLORIOUS COLORS I HAVE TO WORK WITH
 
-#define BLACK           0
-#define BLUE            1
-#define GREEN           2
-#define CYAN            3
-#define RED             4
-#define MAGENTA         5
-#define BROWN           6
-#define LIGHT_GREY      7
-#define DARK_GREY       8
-#define LIGHT_BLUE      9
+#define BLACK            0
+#define BLUE             1
+#define GREEN            2
+#define CYAN             3
+#define RED              4
+#define MAGENTA          5
+#define BROWN            6
+#define LIGHT_GREY       7
+#define DARK_GREY        8
+#define LIGHT_BLUE       9
 #define LIGHT_GREEN     10
 #define LIGHT_CYAN      11
 #define LIGHT_RED       12
@@ -284,7 +284,7 @@ void serial_write(unsigned int com, char *buffer)
 void kmain(void)
 {
     char text[] = "Hello, kernel world!";
-    char serial[] = "Hello, com1!\n";
+    char serial[] = "Hello, serial port world!\n";
 
     gdt_install();
     idt_install();
