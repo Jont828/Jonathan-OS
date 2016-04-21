@@ -8,24 +8,13 @@
 #define FB_HIGH_BYTE_COMMAND    14
 #define FB_LOW_BYTE_COMMAND     15
 
-//DEFINING THE 16 GLORIOUS COLORS I HAVE TO WORK WITH
+/* These define our textpointer, our background and foreground
+*  colors (attributes), and x and y cursor coordinates */
+unsigned short *textmemptr;
+int attrib = 0x0F;
+int csr_x = 0, csr_y = 0;
 
-#define BLACK            0
-#define BLUE             1
-#define GREEN            2
-#define CYAN             3
-#define RED              4
-#define MAGENTA          5
-#define BROWN            6
-#define LIGHT_GREY       7
-#define DARK_GREY        8
-#define LIGHT_BLUE       9
-#define LIGHT_GREEN     10
-#define LIGHT_CYAN      11
-#define LIGHT_RED       12
-#define LIGHT_MAGENTA   13
-#define LIGHT_BROWN     14
-#define WHITE           15
+
 
 unsigned char inportb (unsigned short _port)
 {
@@ -43,12 +32,6 @@ void outportb (unsigned short _port, unsigned char _data)
     __asm__ __volatile__ ("outb %1, %0" : : "dN" (_port), "a" (_data));
 }
 
-
-/* These define our textpointer, our background and foreground
-*  colors (attributes), and x and y cursor coordinates */
-unsigned short *textmemptr;
-int attrib = 0x0F;
-int csr_x = 0, csr_y = 0;
 
 /* Scrolls the screen */
 void scroll(void)
