@@ -1,59 +1,77 @@
-KERNEL_STACK_SIZE equ 4096                  ; size of stack in bytes
+; bkerndev - Bran's Kernel Development Tutorial
+; By:   Brandon F. (friesenb@gmail.com)
+; Desc: Kernel entry point, stack, and Interrupt Service Routines.
+;
+; Notes: No warranty expressed or implied. Use at own risk.
+;
+; This is the kernel's entry point. We could either call main here,
+; or we can use this to setup the stack or other nice stuff, like
+; perhaps setting up the GDT and segments. Please note that interrupts
+; are disabled at this point: More on interrupts later!
+[BITS 32]
+global start
+start:
+    mov esp, sysstack     ; This points the stack to our new stack area
+    jmp stublet
 
-section .bss
-align 4                                     ; align at 4 bytes
-kernel_stack:                               ; label points to beginning of memory
-	resb KERNEL_STACK_SIZE                  ; reserve stack for the kernel
+; This part MUST be 4byte aligned, so we solve that issue using 'ALIGN 4'
+ALIGN 4
+mboot:
+    ; Multiboot macros to make a few lines later more readable
+    MULTIBOOTPAGEALIGN	equ 1<<0
+    MULTIBOOTMEMORYINFO	equ 1<<1
+    MULTIBOOTAOUTKLUDGE	equ 1<<16
+    MULTIBOOTHEADERMAGIC	equ 0x1BADB002
+    MULTIBOOTHEADERFLAGS	equ MULTIBOOTPAGEALIGN | MULTIBOOTMEMORYINFO | MULTIBOOTAOUTKLUDGE
+    MULTIBOOTCHECKSUM	equ -(MULTIBOOTHEADERMAGIC + MULTIBOOTHEADERFLAGS)
+    EXTERN code, bss, end
 
-global loader                   ; the entry symbol for ELF
+    ; This is the GRUB Multiboot header. A boot signature
+    dd MULTIBOOTHEADERMAGIC
+    dd MULTIBOOTHEADERFLAGS
+    dd MULTIBOOTCHECKSUM
+    
+    ; AOUT kludge - must be physical addresses. Make a note of these:
+    ; The linker script fills in the data for these ones!
+    dd mboot
+    dd code
+    dd bss
+    dd end
+    dd start
 
-MAGIC_NUMBER equ 0x1BADB002     ; define the magic number constant
-FLAGS        equ 0x0            ; multiboot flags
-CHECKSUM     equ -MAGIC_NUMBER  ; calculate the checksum
-                            	; (magic number + checksum + flags should equal 0)
-
-section .text:                  ; start of the text (code) section
-align 4                         ; the code must be 4 byte aligned
-	dd MAGIC_NUMBER             ; write the magic number to the machine code,
-	dd FLAGS                    ; the flags,
-	dd CHECKSUM                 ; and the checksum
-
-; GDT code
+; This is an endless loop here. Make a note of this: Later on, we
+; will insert an 'extern main', followed by 'call main', right
+; before the 'jmp $'.
+stublet:
+    extern kmain
+    call kmain
+    jmp $
 
 ; This will set up our new segment registers. We need to do
 ; something special in order to set CS. We do what is called a
 ; far jump. A jump that includes a segment as well as an offset.
 ; This is declared in C as 'extern void gdt_flush();'
-global gdt_flush     ; Allows the C code to link to this
-extern gp            ; Says that 'gp' is in another file
+global gdt_flush
+extern gp
 gdt_flush:
-    lgdt [gp]        ; Load the GDT with our 'gp' which is a special pointer
-    mov ax, 0x10      ; 0x10 is the offset in the GDT to our data segment
+    lgdt [gp]
+    mov ax, 0x10
     mov ds, ax
     mov es, ax
     mov fs, ax
     mov gs, ax
     mov ss, ax
-    jmp 0x08:flush2   ; 0x08 is the offset to our code segment: Far jump!
+    jmp 0x08:flush2
 flush2:
-    ret               ; Returns back to the C code!
-
-; GDT code
-
-; IDT code
+    ret
 
 ; Loads the IDT defined in 'idtp' into the processor.
 ; This is declared in C as 'extern void idt_load();'
-  global idt_load
-  extern idtp
-  idt_load:
-      lidt [idtp]
-      ret
-
-; IDT code
-
-
-; Interrupts and exceptiosn code
+global idt_load
+extern idtp
+idt_load:
+    lidt [idtp]
+    ret
 
 ; In just a few pages in this tutorial, we will add our Interrupt
 ; Service Routines (ISRs) right here!
@@ -310,7 +328,7 @@ isr31:
 
 
 ; We call a C function in here. We need to let the assembler know
-; that 'faulthandler' exists in another file
+; that 'fault_handler' exists in another file
 extern fault_handler
 
 ; This is our common ISR stub. It saves the processor state, sets
@@ -340,15 +358,12 @@ isr_common_stub:
     add esp, 8
     iret
 
-; Interrpt and exceptions code
 
 
-loader:                         ; the loader label (defined as entry point in linker script)
-	mov esp, kernel_stack + KERNEL_STACK_SIZE   ; point esp to the start of the
-                                                ; stack (end of memory area)
-	extern kmain
-
-	call kmain
-
-.loop:
-	jmp .loop                   ; loop forever
+; Here is the definition of our BSS section. Right now, we'll use
+; it just to store the stack. Remember that a stack actually grows
+; downwards, so we declare the size of the data before declaring
+; the identifier 'sysstack'
+SECTION .bss
+    resb 8192               ; This reserves 8KBytes of memory here
+sysstack:

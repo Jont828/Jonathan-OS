@@ -6,13 +6,17 @@ void kmain(void)
     settextcolor(LIGHT_GREY, BLACK);
     gdt_install();
     idt_install();
+    isrs_install();
 
-    char text[] = "Hello, kernel world!";
-    char serial_text[] = "Hello, serial ports!\n";
+    puts("Booting OS from Bochs:\n\n");
+    puts("Hello, kernel world!");
 
-    // int i = 10;
-    // putch(i);
-    // char c = 'a';
-    puts(text);
-    serial_puts(SERIAL_COM1_BASE, serial_text);
+    /* ISRC (ERROR) TEST CODE */
+    // int a[3];
+    // int i;
+    // for(i=0; i<10; i++)
+    //     a[i] = i;
+    //     i = a[i];
+
+    serial_puts(SERIAL_COM1_BASE, "Hello, serial port world!\n");
 }
