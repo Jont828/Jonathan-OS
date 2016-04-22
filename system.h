@@ -105,6 +105,7 @@
 	};
 
 	void isrs_install(); // To be called in main()
+	void fault_handler(struct regs *r);
 
 /* ISRS.C */
 

@@ -3,6 +3,7 @@
 /* These are function prototypes for all of the exception
 *  handlers: The first 32 entries in the IDT are reserved
 *  by Intel, and are designed to service exceptions! */
+
 extern void isr0();
 extern void isr1();
 extern void isr2();
@@ -35,6 +36,7 @@ extern void isr28();
 extern void isr29();
 extern void isr30();
 extern void isr31();
+
 
 
 /* This is a very repetitive function... it's not hard, it's
@@ -88,7 +90,7 @@ void isrs_install() {
 *  corresponds to each and every exception. We get the correct
 *  message by accessing like:
 *  exception_message[interrupt_number] */
-unsigned char *exception_messages[] =
+const char *exception_messages[] =
 {
     "Division By Zero",
     "Debug",
@@ -141,8 +143,8 @@ void fault_handler(struct regs *r)
         /* Display the description for the Exception that occurred.
         *  In this tutorial, we will simply halt the system using an
         *  infinite loop */
-        // fb_write(exception_messages[r->int_no], 81);
-        // fb_write(" Exception. System Halted!", 161  );
+        // puts(exception_messages[r->int_no]);
+        // puts(" Exception. System Halted!");
         for (;;);
     }
 }

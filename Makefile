@@ -1,4 +1,4 @@
-OBJECTS = loader.o system.o kmain.o scrn.o serial.o gdt.o idt.o # isrs.o
+OBJECTS = loader.o system.o kmain.o scrn.o serial.o gdt.o idt.o isrs.o
 CC = gcc
 CFLAGS = -m32 -nostdlib -nostdinc -fno-builtin -fno-stack-protector -nostartfiles -nodefaultlibs -Wall -Wextra -Werror -c
 LDFLAGS = -T link.ld -melf_i386
