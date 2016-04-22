@@ -119,4 +119,13 @@
 
 /* IRQ.C */
 
+/* TIMER.C */
+
+	// void timer_handler(struct regs *r);
+	void timer_handler();
+	void timer_install();
+	void timer_wait(int ticks);
+
+/* TIMER.C */
+
 #endif

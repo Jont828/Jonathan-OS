@@ -8,9 +8,19 @@ void kmain(void)
     idt_install();
     isrs_install();
     irq_install();
+    timer_install();
+
 
     puts("Booting OS from Bochs:\n\n");
     puts("Hello, kernel world!");
+
+
+    timer_wait(1);
+    puts("\nTimer done!");
+    timer_wait(18);
+    puts("\nTimer done!");
+
+
 
     /* ISRC (ERROR) TEST CODE */
     // int a[3];
