@@ -7,6 +7,7 @@ void kmain(void)
     gdt_install();
     idt_install();
     isrs_install();
+    irq_install();
 
     puts("Booting OS from Bochs:\n\n");
     puts("Hello, kernel world!");

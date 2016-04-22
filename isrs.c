@@ -90,7 +90,7 @@ void isrs_install() {
 *  corresponds to each and every exception. We get the correct
 *  message by accessing like:
 *  exception_message[interrupt_number] */
-const char *exception_messages[] =
+char *exception_messages[] =
 {
     "Division By Zero",
     "Debug",
@@ -143,8 +143,8 @@ void fault_handler(struct regs *r)
         /* Display the description for the Exception that occurred.
         *  In this tutorial, we will simply halt the system using an
         *  infinite loop */
-        // puts(exception_messages[r->int_no]);
-        // puts(" Exception. System Halted!");
+        puts(exception_messages[r->int_no]);
+        puts(" Exception. System Halted!");
         for (;;);
     }
 }
