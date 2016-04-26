@@ -9,16 +9,18 @@ void kmain(void)
     isrs_install();
     irq_install();
     timer_install();
+    keyboard_install();
 
 
     puts("Booting OS from Bochs:\n\n");
     puts("Hello, kernel world!");
+    keyboard_handler();
 
 
-    timer_wait(1);
-    puts("\nTimer done!");
-    timer_wait(18);
-    puts("\nTimer done!");
+    // timer_wait(1);
+    // puts("\nTimer done!");
+    // timer_wait(18);
+    // puts("\nTimer done!");
 
 
 
