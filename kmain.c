@@ -11,17 +11,17 @@ void kmain(void)
     timer_install();
     keyboard_install();
 
+    __asm__ __volatile__ ("sti");
 
     puts("Booting OS from Bochs:\n\n");
-    puts("Hello, kernel world!");
-    timer_wait(18);
+    puts("Hello, kernel world!\n");
 
-    // timer_wait(1);
-    // puts("\nTimer done!");
+    char c;
+
+    while((c = getchar()) != '\n')
+        putch(c);
+
     // timer_wait(18);
-    // puts("\nTimer done!");
-
-
 
     /* ISRC (ERROR) TEST CODE */
     // int a[3];

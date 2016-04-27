@@ -5,6 +5,9 @@
 *  comments in to give you an idea of what key is what, even
 *  though I set it's array index to 0. You can change that to
 *  whatever you want using a macro, if you wish! */
+
+char current = 0;
+
 unsigned char kbdus[128] =
 {
     0,  27, '1', '2', '3', '4', '5', '6', '7', '8',	/* 9 */
@@ -75,14 +78,28 @@ void keyboard_handler(struct regs *r)
         *  to the above layout to correspond to 'shift' being
         *  held. If shift is held using the larger lookup table,
         *  you would add 128 to the scancode when you look for it */
-        putch(kbdus[scancode]);
+
+        current = kbdus[scancode];
+        putch(current);
     }
-    putch(kbdus[scancode]); 
-    puts("\nRead a character!");
+    // putch(kbdus[scancode]); 
+    // puts("\nRead a character!");
 }
 
 /* Installs the keyboard handler into IRQ1 */
 void keyboard_install()
 {
     irq_install_handler(1, keyboard_handler);
+}
+
+int getchar() {
+    char temp;
+
+    while(current == 0)
+        ;
+
+    temp = current;
+    current = 0;
+
+    return temp;
 }

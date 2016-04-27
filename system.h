@@ -129,9 +129,10 @@
 
 /* KB.C */
 
-void keyboard_handler(struct regs *r);
-// void keyboard_handler();
-void keyboard_install();
+	void keyboard_handler(struct regs *r);
+	// void keyboard_handler();
+	void keyboard_install();
+	int getchar();
 
 /* KB.C */
 
