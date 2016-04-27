@@ -11,11 +11,9 @@ int timer_ticks = 0;
 *  been smoking something funky */
 
 
-//void timer_handler(struct regs *r)
-
 /* HAD TO REMOVE THE ARGUMENT FROM TIMER_HANDLER BECAUSE OF UNUSED VARIABLE */
-
-void timer_handler()
+void timer_handler(struct regs *r)
+// void timer_handler()
 {
     /* Increment our 'tick count' */
     timer_ticks++;

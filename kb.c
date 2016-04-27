@@ -46,8 +46,8 @@ unsigned char kbdus[128] =
 };		
 
 /* Handles the keyboard interrupt */
-// void keyboard_handler(struct regs *r)
-void keyboard_handler()
+void keyboard_handler(struct regs *r)
+// void keyboard_handler()
 {
     unsigned char scancode;
 
@@ -77,8 +77,7 @@ void keyboard_handler()
         *  you would add 128 to the scancode when you look for it */
         putch(kbdus[scancode]);
     }
-
-    putch(kbdus[scancode]);
+    putch(kbdus[scancode]); 
     puts("\nRead a character!");
 }
 

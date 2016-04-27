@@ -120,9 +120,8 @@
 /* IRQ.C */
 
 /* TIMER.C */
-
-	// void timer_handler(struct regs *r);
-	void timer_handler();
+	void timer_handler(struct regs *r);
+	// void timer_handler();
 	void timer_install();
 	void timer_wait(int ticks);
 
@@ -130,8 +129,8 @@
 
 /* KB.C */
 
-//void keyboard_handler(struct regs *r);
-void keyboard_handler();
+void keyboard_handler(struct regs *r);
+// void keyboard_handler();
 void keyboard_install();
 
 /* KB.C */

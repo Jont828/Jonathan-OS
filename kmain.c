@@ -14,8 +14,7 @@ void kmain(void)
 
     puts("Booting OS from Bochs:\n\n");
     puts("Hello, kernel world!");
-    keyboard_handler();
-
+    timer_wait(18);
 
     // timer_wait(1);
     // puts("\nTimer done!");

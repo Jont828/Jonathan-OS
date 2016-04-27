@@ -1,0 +1,1393 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"has",
+				"has_bully_varying"
+			],
+			[
+				"train",
+				"train_set"
+			],
+			[
+				"com",
+				"command"
+			],
+			[
+				"comm",
+				"command_token"
+			],
+			[
+				"xml",
+				"xml_escape_parser"
+			],
+			[
+				"p",
+				"num_partitions"
+			],
+			[
+				"c",
+				"current_accuracy"
+			],
+			[
+				"par",
+				"partition_size"
+			],
+			[
+				"num",
+				"num_partitions"
+			],
+			[
+				"sax",
+				"saxutils"
+			],
+			[
+				"a",
+				"accuracy"
+			],
+			[
+				"la",
+				"labeled_features"
+			],
+			[
+				"f",
+				"featureset"
+			],
+			[
+				"lab",
+				"labeled_features"
+			],
+			[
+				"l",
+				"labeled_features"
+			],
+			[
+				"tes",
+				"testdict"
+			],
+			[
+				"test",
+				"testdict"
+			],
+			[
+				"cl",
+				"classifier"
+			],
+			[
+				"vocab",
+				"vocabulary"
+			],
+			[
+				"fe",
+				"features"
+			],
+			[
+				"mes",
+				"message_features"
+			],
+			[
+				"doc",
+				"documents"
+			],
+			[
+				"do",
+				"document_features"
+			],
+			[
+				"label",
+				"labeled_messages"
+			],
+			[
+				"tr",
+				"train_set"
+			],
+			[
+				"featu",
+				"feature_set"
+			],
+			[
+				"JFr",
+				"JFrameWithComponents"
+			],
+			[
+				"the",
+				"theHeight"
+			],
+			[
+				"nu",
+				"theNumRaces"
+			],
+			[
+				"b",
+				"theBirthYear"
+			],
+			[
+				"wr",
+				"written_message"
+			],
+			[
+				"parse",
+				"parsexml"
+			],
+			[
+				"bully",
+				"bully_result"
+			],
+			[
+				"find",
+				"findall"
+			],
+			[
+				"re",
+				"remove"
+			],
+			[
+				"co",
+				"contains"
+			],
+			[
+				"print",
+				"print_worker"
+			],
+			[
+				"fin",
+				"findMin"
+			],
+			[
+				"findM",
+				"findMin_worker"
+			],
+			[
+				"d",
+				"duplicates"
+			],
+			[
+				"size",
+				"theSize"
+			],
+			[
+				"F",
+				"Firefighter"
+			],
+			[
+				"Para",
+				"ParamedicIncident"
+			],
+			[
+				"Cop",
+				"CopIncident"
+			],
+			[
+				"C",
+				"RescueCat"
+			],
+			[
+				"Inc",
+				"Incident"
+			],
+			[
+				"Fire",
+				"FirefighterIncident"
+			],
+			[
+				"s",
+				"success"
+			],
+			[
+				"ca",
+				"calc_ratio"
+			],
+			[
+				"fire",
+				"firefighter"
+			],
+			[
+				"In",
+				"Incident"
+			],
+			[
+				"in",
+				"incident"
+			],
+			[
+				"num_",
+				"num_confronts"
+			],
+			[
+				"suc",
+				"successRatio"
+			],
+			[
+				"conf",
+				"confront"
+			],
+			[
+				"new",
+				"newCapacity"
+			],
+			[
+				"set",
+				"setNumerator"
+			],
+			[
+				"de",
+				"denominator"
+			],
+			[
+				"n",
+				"numerator"
+			],
+			[
+				"doub",
+				"doublePrecision"
+			],
+			[
+				"get",
+				"getRadicandValue"
+			],
+			[
+				"ori",
+				"origIndex"
+			],
+			[
+				"newt",
+				"newtonRootIter"
+			],
+			[
+				"int",
+				"initGuess"
+			],
+			[
+				"i",
+				"index"
+			],
+			[
+				"orig",
+				"origRadicand"
+			],
+			[
+				"nth",
+				"nthRootNewtonDiff"
+			],
+			[
+				"ro",
+				"rootNewtonDiff"
+			],
+			[
+				"e",
+				"expression"
+			],
+			[
+				"subPr",
+				"subPrivate"
+			],
+			[
+				"sub",
+				"subProtected"
+			],
+			[
+				"prote",
+				"protectedString"
+			],
+			[
+				"pri",
+				"privateString"
+			],
+			[
+				"Pro",
+				"protectedString"
+			],
+			[
+				"pro",
+				"protectedString"
+			],
+			[
+				"public",
+				"publicString"
+			],
+			[
+				"pub",
+				"publicString"
+			],
+			[
+				"doPr",
+				"doProtectedStuff"
+			],
+			[
+				"doPri",
+				"doPrivateStuff"
+			],
+			[
+				"na",
+				"names"
+			],
+			[
+				"str",
+				"string"
+			],
+			[
+				"name",
+				"namefn"
+			],
+			[
+				"ar",
+				"array"
+			],
+			[
+				"read",
+				"readindex"
+			],
+			[
+				"array",
+				"arraysize"
+			],
+			[
+				"li",
+				"line"
+			],
+			[
+				"fi",
+				"file"
+			],
+			[
+				"file",
+				"filename"
+			],
+			[
+				"fun",
+				"funcname"
+			],
+			[
+				"pr",
+				"println"
+			],
+			[
+				"ma",
+				"May"
+			],
+			[
+				"Ju",
+				"June"
+			],
+			[
+				"Test",
+				"TestClass"
+			],
+			[
+				"mess",
+				"message"
+			],
+			[
+				"fir",
+				"firstname"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "io.s",
+			"settings":
+			{
+				"buffer_size": 920,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "io.h",
+			"settings":
+			{
+				"buffer_size": 527,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "loader2.s",
+			"settings":
+			{
+				"buffer_size": 7050,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "loader.s",
+			"settings":
+			{
+				"buffer_size": 2198,
+				"line_ending": "Unix",
+				"name": "KERNEL_STACK_SIZE equ 4096                  ; size"
+			}
+		},
+		{
+			"file": "isrs.c",
+			"settings":
+			{
+				"buffer_size": 4685,
+				"line_ending": "Unix",
+				"name": "#include \"system.h\""
+			}
+		},
+		{
+			"file": "Makefile",
+			"settings":
+			{
+				"buffer_size": 882,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "kmain.c",
+			"settings":
+			{
+				"buffer_size": 6926,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "scrn.c",
+			"settings":
+			{
+				"buffer_size": 4979,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "scrn.h",
+			"settings":
+			{
+				"buffer_size": 196,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "system.c",
+			"settings":
+			{
+				"buffer_size": 667,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "system.h",
+			"settings":
+			{
+				"buffer_size": 753,
+				"line_ending": "Unix",
+				"name": "#ifndef __SYSTEM_H"
+			}
+		},
+		{
+			"file": "gdt.c",
+			"settings":
+			{
+				"buffer_size": 2678,
+				"line_ending": "Unix",
+				"name": "/* Defines a GDT entry. We say packed, because it"
+			}
+		},
+		{
+			"file": "gdt.h",
+			"settings":
+			{
+				"buffer_size": 645,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "idt.c",
+			"settings":
+			{
+				"buffer_size": 2249,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "idt.h",
+			"settings":
+			{
+				"buffer_size": 144,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 139.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/home/ctong/Desktop/Book OS/scrn.h",
+		"/home/ctong/Desktop/Book OS/isrs.h",
+		"/home/ctong/Desktop/Book OS/gdt.s",
+		"/home/ctong/Desktop/Linux Programming/Python/message_feature_extractor_2yes.py",
+		"/home/ctong/Desktop/Linux Programming/Python/classifier_bayes_cv.py",
+		"/home/ctong/Desktop/Linux Programming/Python/message_feature_extractor_random_forest_pkl.py",
+		"/home/ctong/Desktop/Linux Programming/Python/classifier_evaluation_metrics.py",
+		"/home/ctong/Desktop/Book OS/kernel.elf",
+		"/home/ctong/Desktop/Linux Programming/Python/message_feature_extractor_pkl.py",
+		"/home/ctong/Desktop/Linux Programming/Python/approximate_integral.py",
+		"/home/ctong/Desktop/Linux Programming/C/MyTerminal.c",
+		"/home/ctong/Desktop/Linux Programming/Python/classifier_rforest.py",
+		"/home/ctong/Desktop/Linux Programming/Python/smallxml.xml",
+		"/home/ctong/Desktop/Linux Programming/Python/minixml.xml",
+		"/home/ctong/Desktop/Linux Programming/Python/message_feature_extractor_random_forest.py",
+		"/home/ctong/Desktop/Linux Programming/Python/parsexml.py",
+		"/home/ctong/Desktop/Linux Programming/Python/smallxml.xml_parsed.txt",
+		"/home/ctong/Desktop/Linux Programming/Python/smallxml_parsed.txt",
+		"/home/ctong/Desktop/Linux Programming/Python/test2.py",
+		"/home/ctong/Desktop/Linux Programming/Python/message_feature_extractor_cv.py",
+		"/home/ctong/Desktop/Linux Programming/Python/message_feature_extractor.py",
+		"/home/ctong/Desktop/Linux Programming/Python/label_bully.py",
+		"/home/ctong/Desktop/Linux Programming/Python/sort_by_length.py",
+		"/home/ctong/Desktop/Linux Programming/Python/sort_bully.py",
+		"/home/ctong/Desktop/Linux Programming/Python/message_feature_extractor_random_forest_old.py",
+		"/home/ctong/Desktop/Linux Programming/Python/Greetings.py",
+		"/home/ctong/Desktop/Linux Programming/Python/Hello.py",
+		"/home/ctong/Desktop/Linux Programming/Python/test.py",
+		"/home/ctong/Desktop/Linux Programming/Python/NLTK/movie_reviews.py",
+		"/home/ctong/Desktop/Linux Programming/Python/NLTK/pos_tagging.py",
+		"/home/ctong/Desktop/Linux Programming/Java/JFrameTest.java",
+		"/home/ctong/Desktop/Linux Programming/C++/Horse.cpp",
+		"/home/ctong/Desktop/Linux Programming/C++/Candle.cpp",
+		"/home/ctong/Desktop/Linux Programming/C++/Horses.cpp",
+		"/home/ctong/Desktop/Linux Programming/Python/XMLMergedFile_PARSED.txt",
+		"/home/ctong/Desktop/Linux Programming/Python/XMLMergedFile_PARSED_HAS_BULLY.txt",
+		"/home/ctong/Desktop/Linux Programming/Python/country_data.xml",
+		"/home/ctong/Desktop/Linux Programming/Python/XMLMergedFile2.xml",
+		"/home/ctong/Desktop/Linux Programming/Python/HelloWorld.py",
+		"/home/ctong/Desktop/Linux Programming/C++/PersistenceException.cpp",
+		"/home/ctong/Desktop/Linux Programming/NLTK/find_ing.py",
+		"/home/ctong/Desktop/Linux Programming/C++/MyArrayList.cpp",
+		"/home/ctong/Desktop/Linux Programming/C++/Rational.cpp",
+		"/home/ctong/Desktop/Linux Programming/C++/maxsubarray.cpp",
+		"/home/ctong/Desktop/Linux Programming/C++/Vector.cpp",
+		"/home/ctong/Desktop/Linux Programming/C++/mypow.cpp",
+		"/home/ctong/Desktop/Linux Programming/C++/Polygon.cpp",
+		"/home/ctong/Desktop/Linux Programming/C++/customnewtest.cpp",
+		"/home/ctong/Desktop/Linux Programming/C++/voidptr.cpp",
+		"/home/ctong/Desktop/Linux Programming/Java/ServiceWorkers/ServiceWorker.java",
+		"/home/ctong/Desktop/Linux Programming/Java/ServiceWorkers/Firefighter.java",
+		"/home/ctong/Desktop/Linux Programming/Java/ServiceWorkers/Incident.java",
+		"/home/ctong/Desktop/Linux Programming/C++/test2",
+		"/home/ctong/Desktop/Linux Programming/C++/BoxTest.cpp",
+		"/home/ctong/Desktop/Linux Programming/C/voidptr.c",
+		"/home/ctong/Desktop/Linux Programming/C++/TemplateVector.cpp",
+		"/home/ctong/Desktop/Linux Programming/C++/TemplateVector.h",
+		"/home/ctong/Desktop/Linux Programming/C++/MyLinkedList.cpp",
+		"/home/ctong/Desktop/Linux Programming/C/test2.c",
+		"/home/ctong/Desktop/Linux Programming/C++/ForEachDemo.cpp",
+		"/home/ctong/Desktop/Linux Programming/Java/Java Midterm/Project2.java",
+		"/home/ctong/Desktop/Linux Programming/Java/Java Midterm/Project1.java",
+		"/home/ctong/Desktop/Linux Programming/Java/ServiceWorkers/Main.java",
+		"/home/ctong/Desktop/Linux Programming/C/sqrt.c",
+		"/home/ctong/Desktop/Infinity Academy/academy.css",
+		"/home/ctong/Desktop/Linux Programming/C++/test.cpp",
+		"/home/ctong/Desktop/Linux Programming/Java/Test.java",
+		"/home/ctong/Desktop/Windows Desktop/Webpage Files/Infinity Academy/academy.html",
+		"/home/ctong/Desktop/Windows Desktop/Webpage Files/Infinity Academy/academy.css",
+		"/home/ctong/.themes/My-Radiance-Orange/gtk-3.0/gtk-widgets.css",
+		"/home/ctong/Desktop/Linux Programming/C/MyLinkedList.c",
+		"/home/ctong/.config/sublime-text-2/Packages/Default/Preferences.sublime-settings",
+		"/home/ctong/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
+		"/home/ctong/Desktop/Linux Programming/C++/.Countdown.cpp.swp",
+		"/home/ctong/Desktop/Linux Programming/C++/polytest.cpp",
+		"/home/ctong/Desktop/Linux Programming/C++/throwtest.cpp",
+		"/home/ctong/Desktop/Linux Programming/C++/test2.cpp",
+		"/home/ctong/Desktop/Linux Programming/C++/PolyDiff.cpp",
+		"/home/ctong/Desktop/Linux Programming/FORTRAN/hello.f90",
+		"/home/ctong/Desktop/Linux Programming/C/mystrlen.c",
+		"/home/ctong/Desktop/Linux Programming/C++/PrivateTest.cpp",
+		"/home/ctong/Desktop/Linux Programming/C++/main.cpp",
+		"/home/ctong/Desktop/Linux Programming/C++/templatevector.h",
+		"/home/ctong/Desktop/Linux Programming/C/monthname.c",
+		"/home/ctong/Desktop/Linux Programming/C/broken.c",
+		"/home/ctong/Desktop/Linux Programming/Java/Marathon/Marathon.java",
+		"/home/ctong/Desktop/Linux Programming/Java/Marathon/Runner.java",
+		"/home/ctong/Desktop/Linux Programming/Java/Database/Database.java",
+		"/home/ctong/Desktop/Linux Programming/Java/Database/Person.java",
+		"/home/ctong/Desktop/Linux Programming/Java/StringEquals.java",
+		"/home/ctong/Desktop/Linux Programming/Java/test.java",
+		"/home/ctong/Desktop/Linux Programming/Java/Subject17.java",
+		"/home/ctong/Desktop/Linux Programming/Java/Encrypt.java",
+		"/home/ctong/Desktop/Linux Programming/Java/FooCorp.java",
+		"/home/ctong/Desktop/Linux Programming/Java/Greetings.java",
+		"/home/ctong/Desktop/Linux Programming/Java/JOptionPane_Test.java",
+		"/home/ctong/Desktop/Linux Programming/Java/Line.java",
+		"/home/ctong/Desktop/Linux Programming/Java/P1A.java",
+		"/home/ctong/Desktop/Linux Programming/Java/P1B.java",
+		"/home/ctong/Desktop/Linux Programming/Java/P1C.java",
+		"/home/ctong/Desktop/Linux Programming/Java/P1D.java",
+		"/home/ctong/Desktop/Linux Programming/C++/ctof.cpp",
+		"/home/ctong/Desktop/Linux Programming/C++/ftoc.cpp",
+		"/home/ctong/Desktop/Linux Programming/C++/Encrypt.cpp",
+		"/home/ctong/Desktop/Linux Programming/C++/Greetings.cpp",
+		"/home/ctong/Desktop/Linux Programming/C++/HelloWorld.cpp",
+		"/home/ctong/Desktop/Linux Programming/C++/PrintArgs.cpp",
+		"/home/ctong/Desktop/Linux Programming/C++/RemoveExtraSpaces.cpp",
+		"/home/ctong/Desktop/Linux Programming/C/copyfilecaps.c",
+		"/home/ctong/Desktop/Linux Programming/C/copyfile.c",
+		"/home/ctong/Desktop/Linux Programming/C/Countdown.c",
+		"/home/ctong/Desktop/Linux Programming/Java/TestClass.java",
+		"/home/ctong/Desktop/Linux Programming/C/Countdownr.c",
+		"/home/ctong/Desktop/Linux Programming/C/testdir/main.c",
+		"/home/ctong/Desktop/Linux Programming/C/MonthDays.c",
+		"/home/ctong/Desktop/Linux Programming/C/CartToPol.c",
+		"/home/ctong/Desktop/Linux Programming/C/enumtest.c",
+		"/home/ctong/Desktop/Linux Programming/C/macrotest.c",
+		"/home/ctong/Desktop/Linux Programming/C/NumDatabase.c",
+		"/home/ctong/Desktop/Linux Programming/C/RotateBits.c",
+		"/home/ctong/Desktop/Linux Programming/C/ifdeftest.c",
+		"/home/ctong/Desktop/Linux Programming/C/IntSizeTest.c",
+		"/home/ctong/Desktop/Linux Programming/C/BitTest.c",
+		"/home/ctong/Desktop/Linux Programming/C/debugprintf.c",
+		"/home/ctong/Desktop/Linux Programming/C/BitShiftTest.c",
+		"/home/ctong/Desktop/Linux Programming/C/test.c",
+		"/home/ctong/Desktop/Linux Programming/C/test.h",
+		"/home/ctong/Desktop/Linux Programming/C/Battleship.c"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"h",
+			" #",
+			"()\n",
+			"isrcommonstub",
+			"; ",
+			"idt_load",
+			"extern ",
+			"size_t",
+			"mystrlen",
+			"extern",
+			"threshold",
+			"label_bully",
+			"bxtch",
+			"bitch",
+			"bxtch",
+			"039",
+			"i love you too ",
+			"<FORM",
+			"<ANSWER>Yes",
+			"<ANSWER>Yes\\",
+			"<ANSWER>Yes",
+			"Yes",
+			"  ",
+			"&amp",
+			"&akmp",
+			"#039",
+			"quot",
+			"<FORMSPRINGID>",
+			"<answer>Yes",
+			"	<POST>\n		<TEXT>Q: Bitch u thee bomb like Tick TICK!&lt;br&gt;A: Hahah(: Thanks!</TEXT>\n		<ASKER></ASKER>\n		<LABELDATA>\n			<ANSWER>No</ANSWER>\n			<CYBERBULLYWORD>n/a</CYBERBULLYWORD>\n			<SEVERITY>0</SEVERITY>\n			<OTHER></OTHER>\n			<WORKTIME>13</WORKTIME>\n			<WORKERID>A3VRAAN0NI2SLW</WORKERID>\n		</LABELDATA>\n		<LABELDATA>\n			<ANSWER>No</ANSWER>\n			<CYBERBULLYWORD>n/a</CYBERBULLYWORD>\n			<SEVERITY>0</SEVERITY>\n			<OTHER></OTHER>\n			<WORKTIME>10</WORKTIME>\n			<WORKERID>AJY2MZ3B4KW2G</WORKERID>\n		</LABELDATA>\n		<LABELDATA>\n			<ANSWER>Yes</ANSWER>\n			<CYBERBULLYWORD>Bitch u thee bomb like Tick TICK</CYBERBULLYWORD>\n			<SEVERITY>9</SEVERITY>\n			<OTHER></OTHER>\n			<WORKTIME>129</WORKTIME>\n			<WORKERID>A1ZGYK5RA367YL</WORKERID>\n		</LABELDATA>\n	</POST>",
+			"YES",
+			"FORMSPRING",
+			"features",
+			"message_feature_extractor",
+			"... ",
+			">>> ",
+			"feature_set",
+			"Q: your thoughts on 2012? I think it&#039;ll be an alein invasion.<br>A: we will wake up to blue skys and keep on going on",
+			"to",
+			"\\u2019",
+			"funny",
+			"feel anything anymore  so don&#039;t ask me whatever the fuck you want.",
+			"I don&#039;t feel anything anymore  so don&#039;t ask me whatever the fuck you want.",
+			"BIO",
+			"_worker",
+			"contains_worker",
+			"findMin_worker",
+			");\n",
+			";\n",
+			"Cop",
+			"theSize",
+			"unsigned int",
+			"void *address",
+			"gcf",
+			"numerator()",
+			"denominator()",
+			"getDenominator",
+			"getNumerator",
+			"Numerator",
+			".denominator",
+			".numerator",
+			"rat(",
+			"return rat",
+			"rat.",
+			"rat",
+			"this->",
+			"r.",
+			"const Rational &r",
+			"simplify(rat)",
+			"checkDenominator(rat);",
+			"checkDenominator(*this);",
+			"this->",
+			");\n",
+			"a.",
+			"b.",
+			"print",
+			"{\n",
+			"double",
+			"this->index",
+			"this->radicand",
+			"origRadicand",
+			"origIndex",
+			"length",
+			"}\n",
+			"string",
+			"endl",
+			"cin",
+			"cout",
+			"arraysize",
+			"endl",
+			"cout",
+			"float",
+			"32",
+			"current",
+			";\n",
+			"int length",
+			"int start",
+			"*(message+i)",
+			"*(string+i)",
+			"today",
+			"tomorrow",
+			"primes",
+			"primes[i]",
+			"(int *)",
+			"numbers",
+			"bool",
+			".",
+			"unsigned long int",
+			"primes[i]",
+			"mod",
+			"v",
+			"val",
+			"kind",
+			"arr",
+			"showage",
+			"temp",
+			"more_numbers",
+			"  ",
+			") ",
+			"float",
+			"cin",
+			"cout",
+			"Age",
+			"record",
+			"Person",
+			"\";",
+			"sorted",
+			"n"
+		],
+		"highlight": true,
+		"in_selection": true,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"isr_common_stub",
+			"",
+			"int /*size_t*/",
+			"int",
+			"strlen",
+			"label_posts",
+			"",
+			"labeled_messages",
+			"",
+			"contains",
+			"findMin",
+			"thesize",
+			"int",
+			"T *address",
+			"euclid",
+			"getNumerator()",
+			"getDenominator()",
+			"getDenominator",
+			"denominator",
+			"numerator",
+			"Denominator",
+			".getDenominator()",
+			".getNumerator()",
+			"result(",
+			"return result",
+			"result.",
+			"result",
+			"r1.",
+			"r2.",
+			"const Rational &r1, const Rational &r2",
+			"rat.simplify()",
+			"rat.checkDenominator();",
+			"this->checkDenominator();",
+			"r.",
+			"this->",
+			"r.",
+			"display()",
+			"long double",
+			"origIndex",
+			"origRadicand",
+			"this->radicand",
+			"this->index",
+			"width",
+			"std::string",
+			"std::endl",
+			"std::cin",
+			"std::cout",
+			"size",
+			"std::endl",
+			"std::cout",
+			"double",
+			"intbits",
+			"unsigned int length",
+			"unsigned int start",
+			"*(result+i)",
+			"string[i]",
+			"day",
+			"day2",
+			"isprime",
+			"*(primes+i)",
+			"(double *)",
+			"primes",
+			"int",
+			"unsigned long long int",
+			"*(primes+i)",
+			"sum",
+			"getage",
+			"numbers",
+			"    ",
+			"double",
+			"std::cin",
+			"std::cout",
+			"Time",
+			"Runner",
+			"names",
+			"*(argv[]+tcount)",
+			""
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 6,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "io.s",
+					"settings":
+					{
+						"buffer_size": 920,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								880,
+								880
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/R/R.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "io.h",
+					"settings":
+					{
+						"buffer_size": 527,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "loader2.s",
+					"settings":
+					{
+						"buffer_size": 7050,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								7050,
+								7050
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 614.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "loader.s",
+					"settings":
+					{
+						"buffer_size": 2198,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1871,
+								1871
+							]
+						],
+						"settings":
+						{
+							"auto_name": "KERNEL_STACK_SIZE equ 4096                  ; size",
+							"syntax": "Packages/R/R.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 936.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "isrs.c",
+					"settings":
+					{
+						"buffer_size": 4685,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4557,
+								4557
+							]
+						],
+						"settings":
+						{
+							"auto_name": "#include \"system.h\"",
+							"syntax": "Packages/C++/C.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1814.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "Makefile",
+					"settings":
+					{
+						"buffer_size": 882,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								61,
+								61
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Makefile/Makefile.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "kmain.c",
+					"settings":
+					{
+						"buffer_size": 6926,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								6724,
+								6724
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 4539.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "scrn.c",
+					"settings":
+					{
+						"buffer_size": 4979,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1780,
+								1780
+							]
+						],
+						"settings":
+						{
+							"auto_name": "",
+							"syntax": "Packages/C++/C.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 3029.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "scrn.h",
+					"settings":
+					{
+						"buffer_size": 196,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								153,
+								153
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "system.c",
+					"settings":
+					{
+						"buffer_size": 667,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								103,
+								103
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "system.h",
+					"settings":
+					{
+						"buffer_size": 753,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								496,
+								496
+							]
+						],
+						"settings":
+						{
+							"auto_name": "#ifndef __SYSTEM_H",
+							"syntax": "Packages/C++/C++.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "gdt.c",
+					"settings":
+					{
+						"buffer_size": 2678,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								607,
+								607
+							]
+						],
+						"settings":
+						{
+							"auto_name": "/* Defines a GDT entry. We say packed, because it",
+							"syntax": "Packages/C++/C.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 12,
+					"file": "gdt.h",
+					"settings":
+					{
+						"buffer_size": 645,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								645,
+								645
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 13,
+					"file": "idt.c",
+					"settings":
+					{
+						"buffer_size": 2249,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								18,
+								18
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 14,
+					"file": "idt.h",
+					"settings":
+					{
+						"buffer_size": 144,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 33.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 118.0
+	},
+	"output.unsaved_changes":
+	{
+		"height": 28.0
+	},
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 259.0,
+	"status_bar_visible": true
+}
