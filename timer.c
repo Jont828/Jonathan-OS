@@ -22,7 +22,7 @@ void timer_handler(struct regs *r)
     *  display a message on the screen */
     if (timer_ticks % 18 == 0)
     {;
-        puts("\nOne second has passed\n");
+        // puts("\nOne second has passed\n");
     }
 }
 

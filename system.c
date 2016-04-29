@@ -84,3 +84,14 @@ char *itoa(int num, char *str, int base)
  
     return str;
 }
+
+int power(int num, int power)
+{
+    int result = 1;
+
+    int i;
+    for(i=0; i<power; i++)
+        result *= num;
+
+    return result;
+}

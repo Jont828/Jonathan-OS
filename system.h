@@ -43,6 +43,9 @@
 	void settextcolor(unsigned char forecolor, unsigned char backcolor);
 	void init_video(void);
 
+	void putint();
+	int power(int num, int power);
+
 /* SCRN.C */
 
 /* SERIAL.C */
