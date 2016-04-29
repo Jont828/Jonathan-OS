@@ -6,12 +6,18 @@
 	void *memcpy(void *dest, const void *src, int /*size_t*/ count);
 	void *memset(void *dest, char val, int /*size_t*/ count);
 	unsigned short *memsetw(unsigned short *dest, unsigned short val, int /*size_t*/ count);
-	int strlen(char *text);
-
-	char *itoa(int num, char *str, int base);
-	void reverse(char str[]);
 
 /* SYSTEM.C */
+
+/* UTILITIES.C -- general purpose functions I wrote that are useful for this project */
+
+	int strlen(char *text);
+	char *itoa(int num, char *str, int base);
+	void reverse(char str[]);
+	void putint();
+	int power(int num, int power);
+
+/* UTILITIES.C */
 
 /* SCRN.C */
 
@@ -42,9 +48,6 @@
 	void puts(char *text);
 	void settextcolor(unsigned char forecolor, unsigned char backcolor);
 	void init_video(void);
-
-	void putint();
-	int power(int num, int power);
 
 /* SCRN.C */
 

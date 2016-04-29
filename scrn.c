@@ -170,46 +170,6 @@ void puts(char *text)
     }
 }
 
-void putint(int num)
-{
-    if(num < 0) {
-        num *= -1;
-        putch('-');
-    }
-
-    char numbers[] = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
-
-    int count = 0;
-    int temp_count;
-    int temp = num;
-
-    while(temp) {
-        temp /= 10;
-        count++;
-    }
-    
-    temp_count = count;
-
-    int mod = 0;
-    temp = num;
-    while(temp) {
-        mod += temp % 10 * power(10, temp_count-1);
-        temp /= 10;
-        temp_count--;
-    }
-
-    temp_count = count;
-    while(temp_count) {
-        temp = mod % 10;
-        mod /= 10;
-        putch(numbers[ temp ]);
-
-        temp_count--;
-    }
-
-    putch('\n');
-}
-
 /* Sets the forecolor and backcolor that we will use */
 void settextcolor(unsigned char forecolor, unsigned char backcolor)
 {

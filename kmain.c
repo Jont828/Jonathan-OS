@@ -14,24 +14,13 @@ void kmain(void)
     __asm__ __volatile__ ("sti");
 
     puts("Booting OS from Bochs:\n\n");
-
-    putint(12340);
-
-
-    // puts("Hello, kernel world!\n");
-
-    //puts("[tong2@user001 ~]$ ");    putint(1234);putch('\n');
-    puts("Type something here: ");
-    char c;
-    while((c = getchar()) != '0') {
-        if(c == '\n')
-            puts("Type something here: ");
-    }
-
-    // while((c = getchar()) != '\n')
-    //     putch(c);
-
-    // timer_wait(18);
+        
+    // puts("Type something here: ");
+    // char c;
+    // while((c = getchar()) != '0') {
+    //     if(c == '\n')
+    //         puts("Type something here: ");
+    // }
 
     /* ISRC (ERROR) TEST CODE */
     // int a[3];

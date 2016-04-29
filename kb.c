@@ -8,6 +8,7 @@
 
 char current = 0;
 int shift_pressed = 0;
+int caps_lock_on = 0;
 
 unsigned char kbdus[128] =
 {
@@ -112,8 +113,7 @@ void keyboard_handler(struct regs *r)
             shift_pressed = 0;
         }
 
-        // putint(scancode);
-    }
+    } 
     else
     {
         /* Here, a key was just pressed. Please note that if you
@@ -129,17 +129,47 @@ void keyboard_handler(struct regs *r)
         *  held. If shift is held using the larger lookup table,
         *  you would add 128 to the scancode when you look for it */
 
+        // putint(scancode);
+
+        /* SCANCODES FOR PRESSING LEFT AND RIGHT SHIFT */
         if( (scancode == 42) || (scancode == 54) ) {
             // puts("User pressed shift!\n");
             shift_pressed = 1;
         }
 
+        /* SCANCODES FOR PRESSING CAPS LOCK */
+        if(scancode == 58) {
+            // puts("User pressed caps lock!\n");
+            if(caps_lock_on) {
+                caps_lock_on = 0;
+                // puts("caps lock off\n");
+            }
+            else {
+                caps_lock_on = 1;
+                // puts("caps lock on\n");
+            }
+        }
+
         // puts("A key was pressed");
 
-        if(shift_pressed)
-            current = kbdusshifted[scancode];
-        else
-            current = kbdus[scancode];
+        if(caps_lock_on) {
+            if(shift_pressed)
+                if(isalpha(kbdus[scancode]))
+                    current = kbdus[scancode];
+                else
+                    current = kbdusshifted[scancode];
+            else
+                if(isalpha(kbdus[scancode]))
+                    current = kbdusshifted[scancode];
+                else
+                    current = kbdus[scancode];
+        } else {
+            if(shift_pressed)
+                current = kbdusshifted[scancode];
+            else
+                current = kbdus[scancode];
+        }
+
         putch(current);
     }
     // putch(kbdus[scancode]); 
