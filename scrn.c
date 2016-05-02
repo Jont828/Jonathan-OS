@@ -112,7 +112,13 @@ void putch(unsigned char c)
     /* Handle a backspace, by moving the cursor back one space */
     if(c == 0x08)
     {
-        if(csr_x != 0) csr_x--;
+        if(csr_x != 0) {
+            csr_x--;
+            unsigned blank = 0x20 | (attrib << 8);
+            memsetw (textmemptr + csr_x + csr_y * 80, blank, 1);
+        }
+
+        //csr_x--;
     }
     /* Handles a tab by incrementing the cursor's x, but only
     *  to a point that will make it divisible by 8 */
