@@ -14,7 +14,8 @@ unsigned short *textmemptr;
 int attrib = 0x0F;
 int csr_x = 0, csr_y = 0;
 
-
+int writable[25*80];
+int writable_index = 0;
 
 unsigned char inportb (unsigned short _port)
 {
@@ -101,6 +102,8 @@ void cls()
     csr_x = 0;
     csr_y = 0;
     move_csr();
+
+    // writable_index = 0;
 }
 
 /* Puts a single character on the screen */
@@ -110,15 +113,22 @@ void putch(unsigned char c)
     unsigned att = attrib << 8;
 
     /* Handle a backspace, by moving the cursor back one space */
-    if(c == 0x08)
-    {
-        if(csr_x != 0) {
-            csr_x--;
+    if(c == 0x08) {   
+        /* Testing to see if the cell before is writable */
+        if( writable[ csr_y * 80 + csr_x - 1] ) {
+            if(csr_x > 0) {
+                csr_x--;
+            } else {
+                if(csr_y) { /* csr_y goes from 0-25 inclusive */
+                    csr_x = 80 - 1; /* csr_x position goes from 0-79 inclusive */
+                    csr_y--;
+                }
+                /* else: do nothing */
+            }
+
             unsigned blank = 0x20 | (attrib << 8);
             memsetw (textmemptr + csr_x + csr_y * 80, blank, 1);
         }
-
-        //csr_x--;
     }
     /* Handles a tab by incrementing the cursor's x, but only
     *  to a point that will make it divisible by 8 */
@@ -137,6 +147,25 @@ void putch(unsigned char c)
     *  cursor to the margin and we increment the 'y' value */
     else if(c == '\n')
     {
+        // int i;
+        // for(i = csr_y * 80 + csr_x; i < (csr_y + 1) * 80; i++) {
+        //     writable[i] = 0;
+        //     writable_index++;
+        // }
+
+        while( writable_index < ( 80 * (csr_y + 1) ) ) {
+            writable[writable_index] = 0;
+            writable_index++;
+        }
+
+        // for(j=0; j<(80 - csr_x);) {
+        //     writable[ writable_index ] = 0;
+        //     writable_index++;
+        // }
+
+        // serial_putch(SERIAL_COM1_BASE, (csr_y) * 80 + csr_x);
+        // serial_putch(SERIAL_COM1_BASE, (csr_y + 1) * 80);
+
         csr_x = 0;
         csr_y++;
     }
@@ -144,7 +173,7 @@ void putch(unsigned char c)
     *  printable character. The equation for finding the index
     *  in a linear chunk of memory can be represented by:
     *  Index = [(y * width) + x] */
-    else if(c >= ' ')
+    else if(c >= ' ') /* For all normal/printable characters */
     {
         where = textmemptr + (csr_y * 80 + csr_x);
         *where = c | att;   /* Character AND attributes: color */
@@ -169,9 +198,9 @@ void puts(char *text)
 {
     int i;
 
-    for (i=0; i<strlen(text); i++)
-    {
-        // fb_write_cell(csr_x, text[i], BLACK, WHITE);
+    for (i=0; i<strlen(text); i++) {
+        writable[writable_index] = 0;
+        writable_index++;
         putch(text[i]);
     }
 }
@@ -187,6 +216,7 @@ void settextcolor(unsigned char forecolor, unsigned char backcolor)
 /* Sets our text-mode VGA pointer, then clears the screen for us */
 void init_video(void)
 {
+    memsetw(writable, 1, 25 * 80);
     textmemptr = (unsigned short *)0xB8000;
     cls();
 }

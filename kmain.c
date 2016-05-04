@@ -1,5 +1,7 @@
 #include "system.h"
 
+extern writable[];
+
 void kmain(void)
 {
     init_video();
@@ -13,23 +15,29 @@ void kmain(void)
 
     __asm__ __volatile__ ("sti");
 
-    puts("Booting OS from Bochs:\n\n");
+    // puts("Booting OS from Bochs:\n");
         
-    // puts("Type something here: ");
-    // char c;
-    // while((c = getchar()) != '0') {
-    //     if(c == '\n')
-    //         puts("Type something here: ");
-    // }
 
-    /* ISRC (ERROR) TEST CODE */
-    // int a[3];
-    // int i;
-    // for(i=0; i<10; i++)
-    //     a[i] = i;
-    //     i = a[i];
+    int i, j = 0;
 
-    puts("Done!");
+    puts("Type something here: ");
+    char c;
+    while((c = getchar()) != '0') {
+        if(c == '\n') {
+            puts("Type something here: ");
 
-    serial_puts(SERIAL_COM1_BASE, "Hello, serial port world!\n");
+            serial_putch(SERIAL_COM1_BASE, j + '0');
+            serial_putch(SERIAL_COM1_BASE, '\t');
+
+            for(i=0; i<80; i++) 
+                serial_putch(SERIAL_COM1_BASE, writable[i + j*80] + '0');
+
+            serial_putch(SERIAL_COM1_BASE, '\n');
+            j++;
+        }
+    }
+
+    // puts("Done!");
+
+    // serial_puts(SERIAL_COM1_BASE, "Hello, serial port world!\n");
 }

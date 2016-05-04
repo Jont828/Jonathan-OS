@@ -10,6 +10,11 @@ char current = 0;
 int shift_pressed = 0;
 int caps_lock_on = 0;
 
+extern writable[];
+extern writable_index;
+extern csr_x;
+extern csr_y;
+
 unsigned char kbdus[128] =
 {
     0,  27, '1', '2', '3', '4', '5', '6', '7', '8',	/* 9 */
@@ -58,7 +63,7 @@ unsigned char kbdusshifted[128] =
   'Q', 'W', 'E', 'R',   /* 19 */
   'T', 'Y', 'U', 'I', 'O', 'P', '{', '}', '\n', /* Enter key */
     0,          /* 29   - Control */
-  'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', ';', /* 39 */
+  'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', ':', /* 39 */
  '\"', '~',   0,        /* Left shift */
  '|', 'Z', 'X', 'C', 'V', 'B', 'N',            /* 49 */
   'M', '<', '>', '?',   0,              /* Right shift */
@@ -169,6 +174,15 @@ void keyboard_handler(struct regs *r)
             else
                 current = kbdus[scancode];
         }
+
+
+        // if(current == '\n') {
+        //     int j;
+        //     for(j=0; j<(80 - csr_x); j++) {
+        //         writable[ writable_index + j ] = 0;
+        //         writable_index++;
+        //     }
+        // }
 
         putch(current);
     }
