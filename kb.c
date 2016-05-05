@@ -10,10 +10,9 @@ char current = 0;
 int shift_pressed = 0;
 int caps_lock_on = 0;
 
-extern writable[];
-extern writable_index;
-extern csr_x;
-extern csr_y;
+// extern writable_index;
+// extern csr_x;
+// extern csr_y;
 
 unsigned char kbdus[128] =
 {

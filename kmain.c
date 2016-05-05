@@ -1,6 +1,6 @@
 #include "system.h"
 
-extern writable[];
+extern writable_index;
 
 void kmain(void)
 {
@@ -26,13 +26,13 @@ void kmain(void)
         if(c == '\n') {
             puts("Type something here: ");
 
-            serial_putch(SERIAL_COM1_BASE, j + '0');
-            serial_putch(SERIAL_COM1_BASE, '\t');
+            // serial_putch(SERIAL_COM1_BASE, writable_index + '0');
+            // serial_putch(SERIAL_COM1_BASE, '\n');
 
-            for(i=0; i<80; i++) 
-                serial_putch(SERIAL_COM1_BASE, writable[i + j*80] + '0');
+            // for(i=0; i<80; i++) 
+            //     serial_putch(SERIAL_COM1_BASE, writable[i + j*80] + '0');
 
-            serial_putch(SERIAL_COM1_BASE, '\n');
+            // serial_putch(SERIAL_COM1_BASE, '\n');
             j++;
         }
     }

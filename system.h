@@ -82,6 +82,7 @@
 	int serial_is_transmit_fifo_empty(unsigned int com);
 	void serial_putch(unsigned int com, char c);
 	void serial_puts(unsigned int com, char *buffer);
+	void serial_putint(unsigned int com, int num);
 
 /* SERIAL.C */
 

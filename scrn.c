@@ -14,7 +14,7 @@ unsigned short *textmemptr;
 int attrib = 0x0F;
 int csr_x = 0, csr_y = 0;
 
-int writable[25*80];
+// int writable[25*80];
 int writable_index = 0;
 
 unsigned char inportb (unsigned short _port)
@@ -115,7 +115,7 @@ void putch(unsigned char c)
     /* Handle a backspace, by moving the cursor back one space */
     if(c == 0x08) {   
         /* Testing to see if the cell before is writable */
-        if( writable[ csr_y * 80 + csr_x - 1] ) {
+        if( writable_index < (csr_y * 80 + csr_x) ) {
             if(csr_x > 0) {
                 csr_x--;
             } else {
@@ -147,25 +147,6 @@ void putch(unsigned char c)
     *  cursor to the margin and we increment the 'y' value */
     else if(c == '\n')
     {
-        // int i;
-        // for(i = csr_y * 80 + csr_x; i < (csr_y + 1) * 80; i++) {
-        //     writable[i] = 0;
-        //     writable_index++;
-        // }
-
-        while( writable_index < ( 80 * (csr_y + 1) ) ) {
-            writable[writable_index] = 0;
-            writable_index++;
-        }
-
-        // for(j=0; j<(80 - csr_x);) {
-        //     writable[ writable_index ] = 0;
-        //     writable_index++;
-        // }
-
-        // serial_putch(SERIAL_COM1_BASE, (csr_y) * 80 + csr_x);
-        // serial_putch(SERIAL_COM1_BASE, (csr_y + 1) * 80);
-
         csr_x = 0;
         csr_y++;
     }
@@ -198,9 +179,18 @@ void puts(char *text)
 {
     int i;
 
+    /* Move writable index to current cursor location */
+    writable_index = csr_y * 80 + csr_x;
+
     for (i=0; i<strlen(text); i++) {
-        writable[writable_index] = 0;
         writable_index++;
+        if(text[i] == '\n') {
+            /* csr_y starts at zero, so add 1 to get the line number */
+            while( writable_index < ( 80 * (csr_y + 1) ) ) {
+                writable_index++;
+            }
+        }
+
         putch(text[i]);
     }
 }
@@ -216,7 +206,6 @@ void settextcolor(unsigned char forecolor, unsigned char backcolor)
 /* Sets our text-mode VGA pointer, then clears the screen for us */
 void init_video(void)
 {
-    memsetw(writable, 1, 25 * 80);
     textmemptr = (unsigned short *)0xB8000;
     cls();
 }
