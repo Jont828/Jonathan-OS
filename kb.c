@@ -183,7 +183,7 @@ void keyboard_handler(struct regs *r)
         //     }
         // }
 
-        putch(current);
+        keyboard_putch(current);
     }
     // putch(kbdus[scancode]); 
     // puts("\nRead a character!");

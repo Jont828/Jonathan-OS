@@ -83,16 +83,19 @@ void serial_putint(unsigned int com, int num)
         num *= -1;
         putch('-');
     }
-
-    char numbers[] = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
-
+    
     int count = 0;
     int temp_count;
     int temp = num;
 
-    while(temp) {
-        temp /= 10;
-        count++;
+    /* if temp is not equal to zero since 0 is 0 and the while loop condition fails */
+    if(temp) {
+        while(temp) {
+            temp /= 10;
+            count++;
+        }
+    } else {
+        count = 1;
     }
     
     temp_count = count;
@@ -109,7 +112,7 @@ void serial_putint(unsigned int com, int num)
     while(temp_count) {
         temp = mod % 10;
         mod /= 10;
-        serial_putch(com, numbers[ temp ]);
+        serial_putch(com, temp + '0');
 
         temp_count--;
     }

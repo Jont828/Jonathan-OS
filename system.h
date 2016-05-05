@@ -137,7 +137,7 @@
 /* KB.C */
 
 	void keyboard_handler(struct regs *r);
-	// void keyboard_handler();
+	void keyboard_putch(unsigned char c);
 	void keyboard_install();
 	int getchar();
 

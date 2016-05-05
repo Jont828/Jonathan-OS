@@ -9,6 +9,22 @@ int strlen(char *text)
     return c - text;
 }
 
+
+int strcmp(const char *s1, const char *s2)
+{
+	const unsigned char *p1 = (const unsigned char *)s1;
+    const unsigned char *p2 = (const unsigned char *)s2;
+
+	while(*p1 == *p2) {
+		if (*p1 == '\0')
+	    	return 0;
+	   	p1++;
+	   	p2++;
+	}
+
+    return ((*p1 < *p2) ? -1 : 1);
+}
+
 void reverse(char str[]) 
 {
     int len = strlen(str);
@@ -83,17 +99,20 @@ void putint(int num)
         putch('-');
     }
 
-    char numbers[] = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
-
     int count = 0;
     int temp_count;
     int temp = num;
 
-    while(temp) {
-        temp /= 10;
-        count++;
+    /* if temp is not equal to zero since 0 is 0 and the while loop condition fails */
+    if(temp) {
+    	while(temp) {
+	        temp /= 10;
+	        count++;
+	    }
+    } else {
+    	count = 1;
     }
-    
+
     temp_count = count;
 
     int mod = 0;
@@ -108,7 +127,8 @@ void putint(int num)
     while(temp_count) {
         temp = mod % 10;
         mod /= 10;
-        putch(numbers[ temp ]);
+        putch( temp + '0' );
+        // putch(numbers[ temp ]);
 
         temp_count--;
     }

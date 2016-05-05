@@ -1,7 +1,5 @@
 #include "system.h"
 
-extern writable_index;
-
 void kmain(void)
 {
     init_video();
@@ -18,22 +16,19 @@ void kmain(void)
     // puts("Booting OS from Bochs:\n");
         
 
-    int i, j = 0;
+    int i;
 
+    char *c1 = "Hello";
+    char *c2 = "Hello world!";
+    char c3[] = "Hello\0";
+
+    putint(strcmp(c1, c2));
+    putint(strcmp(c1, c3));
     puts("Type something here: ");
     char c;
     while((c = getchar()) != '0') {
         if(c == '\n') {
             puts("Type something here: ");
-
-            // serial_putch(SERIAL_COM1_BASE, writable_index + '0');
-            // serial_putch(SERIAL_COM1_BASE, '\n');
-
-            // for(i=0; i<80; i++) 
-            //     serial_putch(SERIAL_COM1_BASE, writable[i + j*80] + '0');
-
-            // serial_putch(SERIAL_COM1_BASE, '\n');
-            j++;
         }
     }
 
