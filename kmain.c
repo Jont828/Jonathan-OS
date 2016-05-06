@@ -20,10 +20,9 @@ void kmain(void)
 
     char *c1 = "Hello";
     char *c2 = "Hello world!";
-    char c3[] = "Hello\0";
+    char c3[] = "Helloings";
+    char c4[64];
 
-    putint(strcmp(c1, c2));
-    putint(strcmp(c1, c3));
     puts("Type something here: ");
     char c;
     while((c = getchar()) != '0') {

@@ -25,6 +25,31 @@ int strcmp(const char *s1, const char *s2)
     return ((*p1 < *p2) ? -1 : 1);
 }
 
+char *strcpy(char *dest, const char *src)
+{
+   char *original_dest = dest;
+
+   while(*src)
+       *dest++ = *src++;
+
+   *dest = 0;
+
+   return original_dest;
+}
+
+char *strcat(char *dest, const char *src)
+{
+    char *original_dest = dest;
+
+    while(*dest)
+      dest++;
+
+    while (*dest++ = *src++)
+      ;
+
+    return original_dest;
+}
+
 void reverse(char str[]) 
 {
     int len = strlen(str);
@@ -40,7 +65,7 @@ void reverse(char str[])
     }
 }
 
-char *itoa(int num, char *str, int base)
+char *idesta(int num, char *str, int base)
 {
     int i = 0;
     int isNegative = 0;
@@ -53,7 +78,7 @@ char *itoa(int num, char *str, int base)
         return str;
     }
  
-    // In standard itoa(), negative numbers are handled only with 
+    // In standard idesta(), negative numbers are handled only with 
     // base 10. Otherwise numbers are considered unsigned.
     if (num < 0 && base == 10)
     {
@@ -73,7 +98,7 @@ char *itoa(int num, char *str, int base)
     if (isNegative)
         str[i++] = '-';
  
-    str[i] = '\0'; // Append string terminator
+    str[i] = '\0'; // Append string terminadestr
  
     // Reverse the string
     reverse(str);
@@ -103,7 +128,7 @@ void putint(int num)
     int temp_count;
     int temp = num;
 
-    /* if temp is not equal to zero since 0 is 0 and the while loop condition fails */
+    /* if temp is not equal dest zero since 0 is 0 and the while loop condition fails */
     if(temp) {
     	while(temp) {
 	        temp /= 10;

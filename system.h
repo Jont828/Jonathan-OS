@@ -12,6 +12,9 @@
 /* UTILITIES.C -- general purpose functions I wrote that are useful for this project */
 
 	int strlen(char *text);
+	int strcmp(const char *s1, const char *s2);
+	char *strcpy(char *to, const char *from);
+	char *strcat(char *dest, const char *src);
 	char *itoa(int num, char *str, int base);
 	void reverse(char str[]);
 	void putint();
