@@ -178,7 +178,7 @@ void put_buffer(char *text)
     }
 }
 
-void process_buffer(char *dest, char *raw) 
+void process_buffer(char *dest, char *raw)
 {
     char c;
     int consecutive_backspaces = 0, j = 0;
@@ -188,18 +188,29 @@ void process_buffer(char *dest, char *raw)
     for(i=0; i<strlen(raw); i++) {
         if(raw[i] == '\b') {
             consecutive_backspaces++;
-            raw[i] = '#';
+            raw[i] = '\b';
         } else {
             consecutive_backspaces = 0;
         }
 
         if(consecutive_backspaces) {
             for(j=consecutive_backspaces; j>0; j--) {
-                raw[i - 2*consecutive_backspaces + 1] = '*';
+                raw[i - 2*consecutive_backspaces + 1] = '\b';
             }
         }
     }
 
+    int dest_index, raw_index;
+    dest_index = raw_index = 0;
 
-    strcpy(dest, raw);
+    while(raw_index < strlen(raw)) {
+        if(raw[raw_index] == '\b') {
+            raw_index++;
+        } else {
+            dest[dest_index] = raw[raw_index];
+            dest_index++;
+            raw_index++;
+        }
+    }
+
 }
