@@ -165,3 +165,41 @@ int isalpha(char c)
 {
 	return ( ( (c >= 65) && (c <= 90)) || ( (c >= 97) && (c <= 122)) );
 }
+
+void put_buffer(char *text)
+{
+    int i;
+
+    for (i=0; i<strlen(text); i++) {
+        if(text[i] == '\b')
+            puts("\\b");
+        else
+            putch(text[i]);
+    }
+}
+
+void process_buffer(char *dest, char *raw) 
+{
+    char c;
+    int consecutive_backspaces = 0, j = 0;
+    // strcpy(dest, raw);
+
+    int i;
+    for(i=0; i<strlen(raw); i++) {
+        if(raw[i] == '\b') {
+            consecutive_backspaces++;
+            raw[i] = '#';
+        } else {
+            consecutive_backspaces = 0;
+        }
+
+        if(consecutive_backspaces) {
+            for(j=consecutive_backspaces; j>0; j--) {
+                raw[i - 2*consecutive_backspaces + 1] = '*';
+            }
+        }
+    }
+
+
+    strcpy(dest, raw);
+}

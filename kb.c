@@ -7,12 +7,13 @@
 *  whatever you want using a macro, if you wish! */
 
 char current = 0;
-int shift_pressed = 0;
+int left_shift_pressed = 0;
+int right_shift_pressed = 0;
 int caps_lock_on = 0;
 
-// extern writable_index;
-// extern csr_x;
-// extern csr_y;
+extern writable_index;
+extern csr_x;
+extern csr_y;
 
 unsigned char kbdus[128] =
 {
@@ -111,11 +112,15 @@ void keyboard_handler(struct regs *r)
         *  shift, alt, or control keys... */
 
         
-        /* SCANCODES FOR RELEASING LEFT AND RIGHT SHIFT */
-        if( (scancode == 170) || (scancode == 182) ) {
-            // puts("User released shift!\n");
-            shift_pressed = 0;
+        /* SCANCODE FOR RELEASING LEFT SHIFT */
+        if(scancode == 170) {
+            left_shift_pressed = 0;
         }
+        /* SCANCODE FOR RELEASING RIGHT SHIFT */
+        if(scancode == 182) {
+            right_shift_pressed = 0;
+        }
+
 
     } 
     else
@@ -135,11 +140,21 @@ void keyboard_handler(struct regs *r)
 
         // putint(scancode);
 
-        /* SCANCODES FOR PRESSING LEFT AND RIGHT SHIFT */
-        if( (scancode == 42) || (scancode == 54) ) {
-            // puts("User pressed shift!\n");
-            shift_pressed = 1;
+        /* SCANCODE FOR PRESSING LEFT SHIFT */
+        if(scancode == 42) {
+            left_shift_pressed = 1;
         }
+        /* SCANCODE FOR PRESSING RIGHT SHIFT */
+        if(scancode == 54) {
+            right_shift_pressed = 1;
+        }
+
+        // if((csr_y * 80 + csr_x) > writable_index)
+        //     if(scancode == 75)
+        //         csr_x--;
+
+
+
 
         /* SCANCODES FOR PRESSING CAPS LOCK */
         if(scancode == 58) {
@@ -157,7 +172,7 @@ void keyboard_handler(struct regs *r)
         // puts("A key was pressed");
 
         if(caps_lock_on) {
-            if(shift_pressed)
+            if(left_shift_pressed || right_shift_pressed)
                 if(isalpha(kbdus[scancode]))
                     current = kbdus[scancode];
                 else
@@ -168,7 +183,7 @@ void keyboard_handler(struct regs *r)
                 else
                     current = kbdus[scancode];
         } else {
-            if(shift_pressed)
+            if(left_shift_pressed || right_shift_pressed)
                 current = kbdusshifted[scancode];
             else
                 current = kbdus[scancode];

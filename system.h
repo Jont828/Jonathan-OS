@@ -19,6 +19,10 @@
 	void reverse(char str[]);
 	void putint();
 	int power(int num, int power);
+	int isalpha(char c); 
+	void put_buffer(char *text);
+	void process_buffer(char *dest, char *raw); 
+ 
 
 /* UTILITIES.C */
 

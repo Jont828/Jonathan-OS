@@ -16,18 +16,27 @@ void kmain(void)
     // puts("Booting OS from Bochs:\n");
         
 
-    int i;
-
-    char *c1 = "Hello";
-    char *c2 = "Hello world!";
-    char c3[] = "Helloings";
-    char c4[64];
+    int i = 0;
+    char raw_buffer[1024], buffer[1024];
+    memset(raw_buffer, '\0', 1024);
+    char c;
 
     puts("Type something here: ");
-    char c;
-    while((c = getchar()) != '0') {
-        if(c == '\n') {
+    while((raw_buffer[i] = getchar()) != '0') {
+        if(raw_buffer[i] == '\n') {
+            //puts(raw_buffer);
+            puts("Raw:\t\t");
+            put_buffer(raw_buffer);
+            process_buffer(buffer, raw_buffer);
+            puts("Processed:\t");
+            put_buffer(buffer);
+
+            memset(raw_buffer, '\0', 1024);
+
             puts("Type something here: ");
+            i=0;
+        } else {
+            i++;
         }
     }
 

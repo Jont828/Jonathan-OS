@@ -115,7 +115,7 @@ void keyboard_putch(unsigned char c)
     /* Handle a backspace, by moving the cursor back one space */
     if(c == 0x08) {   
         /* Testing to see if the cell before is writable */
-        if( writable_index < (csr_y * 80 + csr_x) ) {
+        if( (csr_y * 80 + csr_x) > writable_index ) {
             if(csr_x > 0) {
                 csr_x--;
             } else {
