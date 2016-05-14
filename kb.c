@@ -189,15 +189,6 @@ void keyboard_handler(struct regs *r)
                 current = kbdus[scancode];
         }
 
-
-        // if(current == '\n') {
-        //     int j;
-        //     for(j=0; j<(80 - csr_x); j++) {
-        //         writable[ writable_index + j ] = 0;
-        //         writable_index++;
-        //     }
-        // }
-
         keyboard_putch(current);
     }
     // putch(kbdus[scancode]); 
@@ -208,6 +199,11 @@ void keyboard_handler(struct regs *r)
 void keyboard_install()
 {
     irq_install_handler(1, keyboard_handler);
+}
+
+void keyboard_uninstall()
+{
+    irq_install_handler(1, 0);
 }
 
 int getchar() {

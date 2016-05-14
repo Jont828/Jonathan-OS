@@ -1,5 +1,6 @@
 #ifndef __SYSTEM_H
-#define __SYSTEM_H
+	#define __SYSTEM_H
+#endif	
 
 /* SYSTEM.C */
 
@@ -45,6 +46,9 @@
 	#define LIGHT_MAGENTA   13
 	#define LIGHT_BROWN     14
 	#define WHITE           15
+
+	#define VGA_WIDTH   80
+	#define VGA_HEIGHT  25
 
 	unsigned char inportb (unsigned short _port);
 	void outportb (unsigned short _port, unsigned char _data);
@@ -148,7 +152,12 @@
 	void keyboard_putch(unsigned char c);
 	void keyboard_install();
 	int getchar();
+	void keyboard_uninstall(); /* Not sure if I should use this */
 
 /* KB.C */
 
-#endif
+/* EDIT.C */
+
+	void editor(void);
+
+/* EDIT.C */

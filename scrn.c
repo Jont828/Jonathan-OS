@@ -10,11 +10,12 @@
 
 /* These define our textpointer, our background and foreground
 *  colors (attributes), and x and y cursor coordinates */
+
 unsigned short *textmemptr;
 int attrib = 0x0F;
 int csr_x = 0, csr_y = 0;
 
-// int writable[25*80];
+// int writable[VGA_HEIGHT*VGA_WIDTH];
 int writable_index = 0;
 
 unsigned char inportb (unsigned short _port)
@@ -43,18 +44,18 @@ void scroll(void)
     *  backcolor too */
     blank = 0x20 | (attrib << 8);
 
-    /* Row 25 is the end, this means we need to scroll up */
-    if(csr_y >= 25)
+    /* Row VGA_HEIGHT is the end, this means we need to scroll up */
+    if(csr_y >= VGA_HEIGHT)
     {
         /* Move the current text chunk that makes up the screen
         *  back in the buffer by a line */
-        temp = csr_y - 25 + 1;
-        memcpy (textmemptr, textmemptr + temp * 80, (25 - temp) * 80 * 2);
+        temp = csr_y - VGA_HEIGHT + 1;
+        memcpy (textmemptr, textmemptr + temp * VGA_WIDTH, (VGA_HEIGHT - temp) * VGA_WIDTH * 2);
 
         /* Finally, we set the chunk of memory that occupies
         *  the last line of text to our 'blank' character */
-        memsetw (textmemptr + (25 - temp) * 80, blank, 80);
-        csr_y = 25 - 1;
+        memsetw (textmemptr + (VGA_HEIGHT - temp) * VGA_WIDTH, blank, VGA_WIDTH);
+        csr_y = VGA_HEIGHT - 1;
     }
 }
 
@@ -67,7 +68,7 @@ void move_csr(void)
     /* The equation for finding the index in a linear
     *  chunk of memory can be represented by:
     *  Index = [(y * width) + x] */
-    temp = csr_y * 80 + csr_x;
+    temp = csr_y * VGA_WIDTH + csr_x;
 
     /* This sends a command to indicies 14 and 15 in the
     *  CRT Control Register of the VGA controller. These
@@ -94,8 +95,8 @@ void cls()
 
     /* Sets the entire screen to spaces in our current
     *  color */
-    for(i = 0; i < 25; i++)
-        memsetw (textmemptr + i * 80, blank, 80);
+    for(i = 0; i < VGA_HEIGHT; i++)
+        memsetw (textmemptr + i * VGA_WIDTH, blank, VGA_WIDTH);
 
     /* Update out virtual cursor, and then move the
     *  hardware cursor */
@@ -103,7 +104,7 @@ void cls()
     csr_y = 0;
     move_csr();
 
-    // writable_index = 0;
+    writable_index = 0;
 }
 
 /* Puts a single character typed by the keyboard on the screen */
@@ -115,19 +116,19 @@ void keyboard_putch(unsigned char c)
     /* Handle a backspace, by moving the cursor back one space */
     if(c == 0x08) {   
         /* Testing to see if the cell before is writable */
-        if( (csr_y * 80 + csr_x) > writable_index ) {
+        if( (csr_y * VGA_WIDTH + csr_x) > writable_index ) {
             if(csr_x > 0) {
                 csr_x--;
             } else {
-                if(csr_y) { /* csr_y goes from 0-25 inclusive */
-                    csr_x = 80 - 1; /* csr_x position goes from 0-79 inclusive */
+                if(csr_y) { /* csr_y goes from 0-VGA_HEIGHT inclusive */
+                    csr_x = VGA_WIDTH - 1; /* csr_x position goes from 0-79 inclusive */
                     csr_y--;
                 }
                 /* else: do nothing */
             }
 
             unsigned blank = 0x20 | (attrib << 8);
-            memsetw (textmemptr + csr_x + csr_y * 80, blank, 1);
+            memsetw (textmemptr + csr_x + csr_y * VGA_WIDTH, blank, 1);
         }
     }
     /* Handles a tab by incrementing the cursor's x, but only
@@ -156,14 +157,14 @@ void keyboard_putch(unsigned char c)
     *  Index = [(y * width) + x] */
     else if(c >= ' ') /* For all normal/printable characters */
     {
-        where = textmemptr + (csr_y * 80 + csr_x);
+        where = textmemptr + (csr_y * VGA_WIDTH + csr_x);
         *where = c | att;   /* Character AND attributes: color */
         csr_x++;
     }
 
     /* If the cursor has reached the edge of the screen's width, we
     *  insert a new line in there */
-    if(csr_x >= 80)
+    if(csr_x >= VGA_WIDTH)
     {
         csr_x = 0;
         csr_y++;
@@ -183,19 +184,19 @@ void putch(unsigned char c)
     /* Handle a backspace, by moving the cursor back one space */
     if(c == 0x08) {   
         /* Testing to see if the cell before is writable */
-        if( writable_index < (csr_y * 80 + csr_x) ) {
+        if( writable_index < (csr_y * VGA_WIDTH + csr_x) ) {
             if(csr_x > 0) {
                 csr_x--;
             } else {
-                if(csr_y) { /* csr_y goes from 0-25 inclusive */
-                    csr_x = 80 - 1; /* csr_x position goes from 0-79 inclusive */
+                if(csr_y) { /* csr_y goes from 0-VGA_HEIGHT inclusive */
+                    csr_x = VGA_WIDTH - 1; /* csr_x position goes from 0-79 inclusive */
                     csr_y--;
                 }
                 /* else: do nothing */
             }
 
             unsigned blank = 0x20 | (attrib << 8);
-            memsetw (textmemptr + csr_x + csr_y * 80, blank, 1);
+            memsetw (textmemptr + csr_x + csr_y * VGA_WIDTH, blank, 1);
         }
     }
     /* Handles a tab by incrementing the cursor's x, but only
@@ -224,14 +225,14 @@ void putch(unsigned char c)
     *  Index = [(y * width) + x] */
     else if(c >= ' ') /* For all normal/printable characters */
     {
-        where = textmemptr + (csr_y * 80 + csr_x);
+        where = textmemptr + (csr_y * VGA_WIDTH + csr_x);
         *where = c | att;   /* Character AND attributes: color */
         csr_x++;
     }
-
+    
     /* If the cursor has reached the edge of the screen's width, we
     *  insert a new line in there */
-    if(csr_x >= 80)
+    if(csr_x >= VGA_WIDTH)
     {
         csr_x = 0;
         csr_y++;
@@ -239,7 +240,7 @@ void putch(unsigned char c)
 
 
     /* Move writable index to current cursor location */
-    writable_index = csr_y * 80 + csr_x;
+    writable_index = csr_y * VGA_WIDTH + csr_x;
 
     /* Scroll the screen if needed, and finally move the cursor */
     scroll();
@@ -250,16 +251,7 @@ void putch(unsigned char c)
 void puts(char *text)
 {
     int i;
-
-    for (i=0; i<strlen(text); i++) {
-        // writable_index++;
-        // if(text[i] == '\n') {
-        //      csr_y starts at zero, so add 1 to get the line number 
-        //     while( writable_index < ( 80 * (csr_y + 1) ) ) {
-        //         writable_index++;
-        //     }
-        // }
-
+    for(i=0; i<strlen(text); i++) {
         putch(text[i]);
     }
 }
