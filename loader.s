@@ -13,6 +13,8 @@ global start
 start:
     mov esp, sysstack     ; This points the stack to our new stack area
     jmp stublet
+    ; extern kmain
+    ; call kmain
 
 ; This part MUST be 4byte aligned, so we solve that issue using 'ALIGN 4'
 ALIGN 4

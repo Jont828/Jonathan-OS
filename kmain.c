@@ -1,10 +1,5 @@
 #include "system.h"
 
-// struct command {
-//     char name[64];
-//     void (*func)();
-// };
-
 void kmain(void)
 {
     init_video();

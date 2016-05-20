@@ -1,13 +1,18 @@
 #include "system.h"
 
+#define MAX_CMD_LENGTH 256
+#define CMD_HISTORY_LENGTH  4
+
 /* Local command functions */
 void parse_command(char buffer[], char cmd[], char args[]);
 void exit_terminal();
 void echo(char text[]);
 void history();
 
+void shift_history();
+
 struct command {
-    char name[64];
+    char name[MAX_CMD_LENGTH];
     void (*func)(char *);
 };
 
@@ -23,8 +28,7 @@ struct command command_list[] =
 
 int stop = 0;
 
-#define CMD_HISTORY_LENGTH  4
-char cmd_history[CMD_HISTORY_LENGTH][64];
+char cmd_history[CMD_HISTORY_LENGTH][MAX_CMD_LENGTH];
 
 /* start_terminal() is in system.h */
 void start_terminal()
@@ -38,8 +42,8 @@ void start_terminal()
     int history_index = 0;
 
     char buffer[1024];
-    char cmd[64];
-    char args[64];
+    char cmd[MAX_CMD_LENGTH];
+    char args[MAX_CMD_LENGTH];
 
     int size = (int) sizeof(command_list) / sizeof(struct command);
     while( !stop ) {
@@ -47,43 +51,37 @@ void start_terminal()
         getline(buffer, 1024);
         parse_command(buffer, cmd, args);
 
-        if(!strlen(buffer)) /* User didn't type anything */
+        if(strlen(buffer)) {
+            /* If user typed a command, log it into history */
+            if(history_index < CMD_HISTORY_LENGTH) {
+                strcpy(cmd_history[history_index], buffer);
+                history_index++;
+            } else {
+                shift_history();
+                strcpy(cmd_history[CMD_HISTORY_LENGTH - 1], buffer);
+            }
+        } else {
+            /* Continue to next iteration if nothing was entered, skipping the table search */
             continue;
+        }
 
+        /* Search command list and run it */
         int i = 0, found = 0;
         while(i < size) {
             if(!strcmp(cmd, command_list[i].name)) {
-                strcpy(cmd_history[history_index], buffer);
-                history_index++;
-
-                if(history_index >= CMD_HISTORY_LENGTH) {
-                    char current[64];
-                    char temp[64];
-
-                    strcpy(current, cmd_history[CMD_HISTORY_LENGTH - 1]);
-                    strcpy(cmd_history[CMD_HISTORY_LENGTH-1], "\0");
-
-                    int j;
-                    for(j=CMD_HISTORY_LENGTH-1; j>0; j--) {
-                        puts("looping\n");
-                        strcpy(temp, cmd_history[j-1]);
-                        strcpy(cmd_history[j-1], current);
-                        strcpy(current, temp);
-                    }
-
-                    history_index--;
-                }
-
                 command_list[i].func(args);
                 found = 1;
             }
             i++;
         }
 
+        /* If command entered is not in table */
         if(!found) {
             putch('\'');
             puts(cmd);
             puts("\' is an unrecognized command\n");
+        } else {
+
         }
     }
 }
@@ -106,15 +104,36 @@ void parse_command(char buffer[], char cmd[], char args[]) {
     args[j] = '\0';
 }
 
+/* Shifts elements of history array over one when it's full, allowing a new element to be put in */
+void shift_history() {
+    char current[MAX_CMD_LENGTH];
+    char temp[MAX_CMD_LENGTH];
 
-/* Commands local to the terminal */
+    strcpy(current, cmd_history[CMD_HISTORY_LENGTH - 1]);
+    strcpy(cmd_history[CMD_HISTORY_LENGTH - 1], "\0");
+
+    int j;
+    for(j=CMD_HISTORY_LENGTH-1; j>0; j--) {
+        // puts("looping\n");
+        strcpy(temp, cmd_history[j-1]);
+        strcpy(cmd_history[j-1], current);
+        strcpy(current, temp);
+    }
+}
+
+/* Commands local to the terminal are below */
 
 void exit_terminal() {
     stop = 1;
 }
 
 void echo(char text[]) {
-    puts(text);
+    int i=0;
+    while(text[i]) {
+        if( text[i] != '\"' )
+            putch(text[i]);
+        i++;
+    }
     putch('\n');
 }
 
