@@ -201,11 +201,6 @@ void keyboard_install()
     irq_install_handler(1, keyboard_handler);
 }
 
-void keyboard_uninstall()
-{
-    irq_install_handler(1, 0);
-}
-
 int getchar() {
     char temp;
 
@@ -216,4 +211,26 @@ int getchar() {
     current = 0;
 
     return temp;
+}
+
+/* Read characters into buffer until user presses '\n' and return length.
+* This way backspaces can be handled in a seperate function */
+int getline(char *buffer, int lim)
+{
+    int i=0;
+    while(i < (lim-1) && (buffer[i] = getchar()) != '\n') {
+        if(buffer[i] == '\b') {
+            if(i != 0) {
+                buffer[i-1] = '\0';
+                buffer[i] = '\0';
+                i = i-1;
+            }
+        } else {
+            i++;
+        }
+    }
+
+    buffer[i] = '\0';
+
+    return i;
 }

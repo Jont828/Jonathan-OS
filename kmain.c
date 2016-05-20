@@ -1,5 +1,10 @@
 #include "system.h"
 
+// struct command {
+//     char name[64];
+//     void (*func)();
+// };
+
 void kmain(void)
 {
     init_video();
@@ -12,50 +17,41 @@ void kmain(void)
     keyboard_install();
 
     /* Initializes keyboard */
-    __asm__ __volatile__ ("sti");
+    __asm__ __volatile__ ("sti"); /* Set interrupts */
 
     puts("Booting Jonathan's OS from Bochs:\n\n");
     
-    char buffer[1024];
+    start_terminal();
+    // char buffer[1024];
+    // char editor_buffer[VGA_WIDTH * VGA_HEIGHT];
 
-    while(1) {
-        puts("Enter a command: ");
-        getline(buffer, 1024);
-
-        // puts("You typed \'");
-        // puts(buffer);
-        // puts("\'\n");
-
-        if(!strcmp(buffer, "exit") || !strcmp(buffer, "logout")) {
-            puts("OS shutting down.");
-            break;
-        } else if(!strcmp(buffer, "clear")) {
-            cls();
-        } else if(!strcmp(buffer, "edit")) {
-            editor();
-        } else if(!strcmp(buffer, "hello")) {
-            puts("Hi! How are you?\n");
-        } else if(!strcmp(buffer, "whoami")) {
-            puts("I dunno, you tell me\n");
-        } else if(!strlen(buffer)) { /* strlen(buffer) == 0 */
-            puts("Please enter a command\n");
-            /* Do nothing if no command is entered */
-        } 
-        else {
-            putch('\'');
-            puts(buffer);
-            puts("\' is an unrecognized command\n");
-        }
-    }
-
-    keyboard_uninstall();
-
-    // do {
-    //     puts("Type something here: ");
+    // while(1) {
+    //     puts("Enter a command: ");
     //     getline(buffer, 1024);
-    //     puts(buffer);
-    //     putch('\n');
-    // } while(strcmp(buffer, "exit"));
+
+    //     if(!strcmp(buffer, "exit") || !strcmp(buffer, "logout")) {
+    //         puts("OS shutting down.");
+    //         break;
+    //     } else if(!strcmp(buffer, "clear")) {
+    //         cls();
+    //     } else if(!strcmp(buffer, "edit")) {
+    //         editor(editor_buffer, VGA_WIDTH * VGA_HEIGHT);
+    //         puts("You typed:\n\n");
+    //         puts(editor_buffer);
+    //         putch('\n');
+    //     } else if(!strlen(buffer)) { /* strlen(buffer) == 0 */
+    //         // puts("Please enter a command\n");
+    //         /* Do nothing if no command is entered */
+    //     } 
+    //     else {
+    //         putch('\'');
+    //         puts(buffer);
+    //         puts("\' is an unrecognized command\n");
+    //     }
+    // }
+
+    // __asm__ __volatile__ ("cli"); /* Clear interrupts */
+    irq_uninstall_handler(1); /* Uninstalls keyboard */
 
     puts("\nGoodbye!");
 

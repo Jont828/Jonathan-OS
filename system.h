@@ -23,9 +23,7 @@
 	int isalpha(char c); 
 	void put_buffer(char *text);
 	void process_buffer(char *dest, char *raw);
-	int getline(char *buffer, int lim);
  
-
 /* UTILITIES.C */
 
 /* SCRN.C */
@@ -152,12 +150,18 @@
 	void keyboard_putch(unsigned char c);
 	void keyboard_install();
 	int getchar();
-	void keyboard_uninstall(); /* Not sure if I should use this */
+	int getline(char *buffer, int lim);
 
 /* KB.C */
 
 /* EDIT.C */
 
-	void editor(void);
+	void editor(char *editor_buffer, int lim);
 
 /* EDIT.C */
+
+/* TERMINAL.C */
+
+	void start_terminal();
+
+/* TERMINAL.C */

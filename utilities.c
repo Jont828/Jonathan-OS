@@ -215,23 +215,3 @@ void process_buffer(char *dest, char *raw)
     }
 
 }
-
-/* Read characters into buffer until user presses '\n' and return length.
-* This way backspaces can be handled in a seperate function */
-int getline(char *buffer, int lim)
-{
-    int i=0;
-    while(i < (lim-1) && (buffer[i] = getchar()) != '\n') {
-        if(buffer[i] == '\b') {
-            buffer[i-1] = '\0';
-            buffer[i] = '\0';
-            i = i-1;
-        } else {
-            i++;
-        }
-    }
-
-    buffer[i] = '\0';
-
-    return i;
-}

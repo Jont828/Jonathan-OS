@@ -1,10 +1,13 @@
 #include "system.h"
 
-void editor(void) {
-	char editor_buffer[VGA_WIDTH * VGA_HEIGHT];
+void editor(char *editor_buffer, int lim) {
 	cls();
-	edit_get_text(editor_buffer, VGA_WIDTH * VGA_HEIGHT);
+	puts("Type some stuff here (press ESC to exit):\n");
+
+	int len = edit_get_text(editor_buffer, lim);
 	cls();
+
+	// return len;
 }
 
 int edit_get_text(char *buffer, int lim)
