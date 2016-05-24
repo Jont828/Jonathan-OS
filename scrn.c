@@ -16,7 +16,8 @@ int attrib = 0x0F;
 int csr_x = 0, csr_y = 0;
 
 // int writable[VGA_HEIGHT*VGA_WIDTH];
-int writable_index = 0;
+int last_writable = 0;
+int furthest_writable = 0;
 
 unsigned char inportb (unsigned short _port)
 {
@@ -104,7 +105,7 @@ void cls()
     csr_y = 0;
     move_csr();
 
-    writable_index = 0;
+    last_writable = furthest_writable = 0;
 }
 
 /* Puts a single character typed by the keyboard on the screen */
@@ -116,7 +117,7 @@ void keyboard_putch(unsigned char c)
     /* Handle a backspace, by moving the cursor back one space */
     if(c == 0x08) {   
         /* Testing to see if the cell before is writable */
-        if( (csr_y * VGA_WIDTH + csr_x) > writable_index ) {
+        if( (csr_y * VGA_WIDTH + csr_x) > last_writable ) {
             if(csr_x > 0) {
                 csr_x--;
             } else {
@@ -160,6 +161,9 @@ void keyboard_putch(unsigned char c)
         where = textmemptr + (csr_y * VGA_WIDTH + csr_x);
         *where = c | att;   /* Character AND attributes: color */
         csr_x++;
+
+        // if( (csr_y * VGA_WIDTH + csr_x) > furthest_writable )
+        //     furthest_writable++;
     }
 
     /* If the cursor has reached the edge of the screen's width, we
@@ -184,7 +188,7 @@ void putch(unsigned char c)
     /* Handle a backspace, by moving the cursor back one space */
     if(c == 0x08) {   
         /* Testing to see if the cell before is writable */
-        if( writable_index < (csr_y * VGA_WIDTH + csr_x) ) {
+        if( last_writable < (csr_y * VGA_WIDTH + csr_x) ) {
             if(csr_x > 0) {
                 csr_x--;
             } else {
@@ -240,7 +244,7 @@ void putch(unsigned char c)
 
 
     /* Move writable index to current cursor location */
-    writable_index = csr_y * VGA_WIDTH + csr_x;
+    last_writable = csr_y * VGA_WIDTH + csr_x;
 
     /* Scroll the screen if needed, and finally move the cursor */
     scroll();

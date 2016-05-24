@@ -11,7 +11,8 @@ int left_shift_pressed = 0;
 int right_shift_pressed = 0;
 int caps_lock_on = 0;
 
-extern writable_index;
+extern last_writable;
+extern furthest_writable;
 extern csr_x;
 extern csr_y;
 
@@ -149,10 +150,12 @@ void keyboard_handler(struct regs *r)
             right_shift_pressed = 1;
         }
 
-        // if((csr_y * 80 + csr_x) > writable_index)
+        // if((csr_y * 80 + csr_x) > last_writable)
         //     if(scancode == 75)
         //         csr_x--;
-
+        // if((csr_y * 80 + csr_x) < furthest_writable)
+        //     if(scancode == 77)
+        //         csr_x--;
 
 
 
@@ -213,8 +216,7 @@ int getchar() {
     return temp;
 }
 
-/* Read characters into buffer until user presses '\n' and return length.
-* This way backspaces can be handled in a seperate function */
+/* Read characters into buffer until user presses '\n' and return length. */
 int getline(char *buffer, int lim)
 {
     int i=0;

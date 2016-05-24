@@ -1,34 +1,69 @@
 #include "system.h"
 
-#define MAX_CMD_LENGTH 256
+#define MAX_CMD_LENGTH  256
+#define MAX_CMD_DESC_LENGTH 256
 #define CMD_HISTORY_LENGTH  4
+
+int get_command(char *buffer, int lim);
 
 /* Local command functions */
 void parse_command(char buffer[], char cmd[], char args[]);
+
+void help();
 void exit_terminal();
 void echo(char text[]);
 void history();
+void who(char text[]);
 
 void shift_history();
 
 struct command {
     char name[MAX_CMD_LENGTH];
+    char desc[MAX_CMD_DESC_LENGTH];
     void (*func)(char *);
 };
 
 struct command command_list[] = 
 { 
-    { "exit", &exit_terminal }, 
-    { "logout", &exit_terminal }, 
-    { "clear", &cls }, 
-    { "edit", &editor },
-    {"echo", &echo},
-    {"history", &history}
+    { "help",
+        "lists all commands and their descriptions",
+        help },
+
+    { "exit", 
+        "exits the system",
+        exit_terminal }, 
+    { "logout", 
+        "exits the system",
+        exit_terminal }, 
+
+    { "clear", 
+        "clears the screen",
+        cls }, 
+
+    { "edit", 
+        "[NOT FINISHED] opens a simple text editor",
+        editor },
+
+    {"echo", 
+        "prints the arguments given",
+        echo},
+
+    {"history", 
+        "displays command history",
+        history},
+
+    {"whoami", 
+        "displays username of current user", who},
+    {"who", 
+        "[NOT FINISHED] displays information on users currently logged in",
+        who}
 };
 
 int stop = 0;
 
 char cmd_history[CMD_HISTORY_LENGTH][MAX_CMD_LENGTH];
+// char username[MAX_CMD_LENGTH];
+char username[] = "jtong";
 
 /* start_terminal() is in system.h */
 void start_terminal()
@@ -41,14 +76,19 @@ void start_terminal()
 
     int history_index = 0;
 
+    // puts("Enter your username: ");
+    // get_command(username, MAX_CMD_LENGTH);
+
     char buffer[1024];
     char cmd[MAX_CMD_LENGTH];
     char args[MAX_CMD_LENGTH];
 
     int size = (int) sizeof(command_list) / sizeof(struct command);
     while( !stop ) {
-        puts("Enter a command: ");
-        getline(buffer, 1024);
+        puts(username);
+        puts("@jonathan-os$ ");
+        // puts("Enter a command: ");
+        get_command(buffer, 1024);
         parse_command(buffer, cmd, args);
 
         if(strlen(buffer)) {
@@ -84,6 +124,28 @@ void start_terminal()
 
         }
     }
+}
+
+/* Read characters into buffer until user presses '\n' and return length.
+* Handles backspaces as well, will add tab completion and arrow keys for cmd history */
+int get_command(char *buffer, int lim)
+{
+    int i=0;
+    while(i < (lim-1) && (buffer[i] = getchar()) != '\n') {
+        if(buffer[i] == '\b') {
+            if(i != 0) {
+                buffer[i-1] = '\0';
+                buffer[i] = '\0';
+                i = i-1;
+            }
+        } else {
+            i++;
+        }
+    }
+
+    buffer[i] = '\0';
+
+    return i;
 }
 
 /* Separates the command from its arguments and puts them into cmd[] and args[], respectively */
@@ -123,6 +185,21 @@ void shift_history() {
 
 /* Commands local to the terminal are below */
 
+void help() {
+    int size = (int) sizeof(command_list) / sizeof(struct command);
+
+    puts("Jonathan's OS with basic CLI\n\n");
+    puts("Supported commands:\n");
+    int i;
+    for(i=0; i<size; i++) {
+        puts(" - ");
+        puts(command_list[i].name);
+        puts(": ");
+        puts(command_list[i].desc);
+        puts("\n");
+    }
+}
+
 void exit_terminal() {
     stop = 1;
 }
@@ -142,5 +219,23 @@ void history() {
     for(i=0; strlen(cmd_history[i]); i++) {
         puts(cmd_history[i]);
         putch('\n');
+    }
+}
+
+void who(char text[]) {
+    if(strlen(text)) {
+        if(!strcmp(text, "am i")) {
+            puts("You're ");
+            puts(username);
+            puts(", at least that's what you told me, anyway\n");
+        } else {
+            puts("I'm only as smart as you made me buddy\n");
+        }
+    } else {
+        /* User didn't type anything or entered whoami
+        * Will improve this implementation later to list all users like on Linux*/
+        puts("You're ");
+        puts(username);
+        puts(", at least that's what you told me, anyway\n");
     }
 }
