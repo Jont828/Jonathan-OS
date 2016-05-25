@@ -15,9 +15,19 @@ unsigned short *textmemptr;
 int attrib = 0x0F;
 int csr_x = 0, csr_y = 0;
 
+char screen_data[VGA_HEIGHT * VGA_WIDTH];
+int screen_index = 0;
+
 // int writable[VGA_HEIGHT*VGA_WIDTH];
 int last_writable = 0;
 int furthest_writable = 0;
+
+
+
+int size;
+int original_csr;
+
+char original_screen_data[VGA_WIDTH * VGA_HEIGHT * 2];
 
 unsigned char inportb (unsigned short _port)
 {
@@ -106,6 +116,7 @@ void cls()
     move_csr();
 
     last_writable = furthest_writable = 0;
+    // screen_index = 0;
 }
 
 /* Puts a single character typed by the keyboard on the screen */
@@ -130,6 +141,7 @@ void keyboard_putch(unsigned char c)
 
             unsigned blank = 0x20 | (attrib << 8);
             memsetw (textmemptr + csr_x + csr_y * VGA_WIDTH, blank, 1);
+            // screen_data[screen_index--] = '\0';
         }
     }
     /* Handles a tab by incrementing the cursor's x, but only
@@ -151,6 +163,8 @@ void keyboard_putch(unsigned char c)
     {
         csr_x = 0;
         csr_y++;
+        // while(screen_index < csr_y * VGA_WIDTH + csr_x)
+        //     screen_data[screen_index++] = ' ';
     }
     /* Any character greater than and including a space, is a
     *  printable character. The equation for finding the index
@@ -161,9 +175,7 @@ void keyboard_putch(unsigned char c)
         where = textmemptr + (csr_y * VGA_WIDTH + csr_x);
         *where = c | att;   /* Character AND attributes: color */
         csr_x++;
-
-        // if( (csr_y * VGA_WIDTH + csr_x) > furthest_writable )
-        //     furthest_writable++;
+        // screen_data[screen_index++] = c;
     }
 
     /* If the cursor has reached the edge of the screen's width, we
@@ -222,6 +234,8 @@ void putch(unsigned char c)
     {
         csr_x = 0;
         csr_y++;
+        // while(screen_index < csr_y * VGA_WIDTH + csr_x)
+        //     screen_data[screen_index++] = ' ';
     }
     /* Any character greater than and including a space, is a
     *  printable character. The equation for finding the index
@@ -232,6 +246,7 @@ void putch(unsigned char c)
         where = textmemptr + (csr_y * VGA_WIDTH + csr_x);
         *where = c | att;   /* Character AND attributes: color */
         csr_x++;
+        // screen_data[screen_index++] = c;
     }
     
     /* If the cursor has reached the edge of the screen's width, we
@@ -273,4 +288,21 @@ void init_video(void)
 {
     textmemptr = (unsigned short *)0xB8000;
     cls();
+}
+
+void save_screen_data(void)
+{
+    size = csr_y * VGA_WIDTH * 2; /* Multiply by 2 because it packs the character AND the color */
+    original_csr = csr_y * VGA_WIDTH + csr_x;
+    
+    memcpy(original_screen_data, textmemptr, size);
+}
+
+void restore_screen_data(void)
+{
+    memcpy(textmemptr, original_screen_data, size);
+
+    csr_x = original_csr % VGA_WIDTH;
+    csr_y = (original_csr - csr_x) / VGA_WIDTH;
+    last_writable = original_csr;
 }

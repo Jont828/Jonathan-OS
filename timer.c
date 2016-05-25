@@ -3,6 +3,7 @@
 /* This will keep track of how many ticks that the system
 *  has been running for */
 int timer_ticks = 0;
+int time_since_boot = 0;
 
 /* Handles the timer. In this case, it's very simple: We
 *  increment the 'timer_ticks' variable every time the
@@ -22,6 +23,7 @@ void timer_handler(struct regs *r)
     *  display a message on the screen */
     if (timer_ticks % 18 == 0)
     {;
+        time_since_boot++;
         // puts("\nOne second has passed\n");
     }
 }

@@ -59,6 +59,9 @@
 	void settextcolor(unsigned char forecolor, unsigned char backcolor);
 	void init_video(void);
 
+	void save_screen_data(void);
+	void restore_screen_data(void);
+
 /* SCRN.C */
 
 /* SERIAL.C */

@@ -14,6 +14,7 @@ void exit_terminal();
 void echo(char text[]);
 void history();
 void who(char text[]);
+void date();
 
 void shift_history();
 
@@ -41,7 +42,7 @@ struct command command_list[] =
         cls }, 
 
     { "edit", 
-        "[NOT FINISHED] opens a simple text editor",
+        "opens a simple text editor",
         editor },
 
     {"echo", 
@@ -51,6 +52,10 @@ struct command command_list[] =
     {"history", 
         "displays command history",
         history},
+
+    {"date",
+        "displays current time and date [NOT FINISHED]",
+        date},
 
     {"whoami", 
         "displays username of current user", who},
@@ -68,8 +73,31 @@ char username[] = "jtong";
 /* start_terminal() is in system.h */
 void start_terminal()
 {
+    int size = (int) sizeof(command_list) / sizeof(struct command);
+    struct command temp;
+
+    int i, j;
+    for(i=0; i<size; i++) {;
+        for(j=0; j<size - i - 1; j++) {
+            if(strcmp(command_list[j].name, command_list[j+1].name) > 0) {
+                strcpy(temp.name, command_list[j].name);
+                strcpy(temp.desc, command_list[j].desc);
+                temp.func = command_list[j].func;
+
+                strcpy(command_list[j].name, command_list[j+1].name);
+                strcpy(command_list[j].desc, command_list[j+1].desc);
+                command_list[j].func = command_list[j+1].func;
+
+                strcpy(command_list[j+1].name, temp.name);
+                strcpy(command_list[j+1].desc, temp.desc);
+                command_list[j+1].func = temp.func;
+            }
+        }
+    }
+
+
+
     /* Clears the command history for this terminal session */
-    int i;
     for(i=0; i<CMD_HISTORY_LENGTH; i++) {
         cmd_history[i][0] = '\0';
     }
@@ -83,7 +111,6 @@ void start_terminal()
     char cmd[MAX_CMD_LENGTH];
     char args[MAX_CMD_LENGTH];
 
-    int size = (int) sizeof(command_list) / sizeof(struct command);
     while( !stop ) {
         puts(username);
         puts("@jonathan-os$ ");
@@ -106,7 +133,8 @@ void start_terminal()
         }
 
         /* Search command list and run it */
-        int i = 0, found = 0;
+        i = 0;
+        int found = 0;
         while(i < size) {
             if(!strcmp(cmd, command_list[i].name)) {
                 command_list[i].func(args);
@@ -238,4 +266,11 @@ void who(char text[]) {
         puts(username);
         puts(", at least that's what you told me, anyway\n");
     }
+}
+
+void date() {
+    extern time_since_boot;
+    puts("System has been active for ");
+    putint(time_since_boot);
+    puts(" seconds\n");
 }

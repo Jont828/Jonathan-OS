@@ -65,7 +65,7 @@ void reverse(char str[])
     }
 }
 
-char *idesta(int num, char *str, int base)
+char *itoa(int num, char *str, int base)
 {
     int i = 0;
     int isNegative = 0;
@@ -78,7 +78,7 @@ char *idesta(int num, char *str, int base)
         return str;
     }
  
-    // In standard idesta(), negative numbers are handled only with 
+    // In standard itoa(), negative numbers are handled only with 
     // base 10. Otherwise numbers are considered unsigned.
     if (num < 0 && base == 10)
     {
@@ -158,7 +158,7 @@ void putint(int num)
         temp_count--;
     }
 
-    putch('\n');
+    // putch('\n');
 }
 
 int isalpha(char c) 
