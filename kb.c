@@ -150,12 +150,12 @@ void keyboard_handler(struct regs *r)
             right_shift_pressed = 1;
         }
 
-        // if((csr_y * 80 + csr_x) > last_writable)
-        //     if(scancode == 75)
-        //         csr_x--;
-        // if((csr_y * 80 + csr_x) < furthest_writable)
-        //     if(scancode == 77)
-        //         csr_x--;
+        if((csr_y * 80 + csr_x) > last_writable)
+            if(scancode == 75)
+                csr_x--;
+        if((csr_y * 80 + csr_x) < furthest_writable)
+            if(scancode == 77)
+                csr_x++;
 
 
 

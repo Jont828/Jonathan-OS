@@ -125,6 +125,8 @@ void keyboard_putch(unsigned char c)
     unsigned short *where;
     unsigned att = attrib << 8;
 
+    unsigned blank = 0x20 | (attrib << 8);
+
     /* Handle a backspace, by moving the cursor back one space */
     if(c == 0x08) {   
         /* Testing to see if the cell before is writable */
@@ -139,9 +141,17 @@ void keyboard_putch(unsigned char c)
                 /* else: do nothing */
             }
 
-            unsigned blank = 0x20 | (attrib << 8);
-            memsetw (textmemptr + csr_x + csr_y * VGA_WIDTH, blank, 1);
-            // screen_data[screen_index--] = '\0';
+            char temp[MAX_CMD_LENGTH];
+
+            memcpy(temp, 
+                textmemptr + csr_y * VGA_WIDTH + csr_x+1,
+                (furthest_writable - csr_y * VGA_WIDTH - csr_x) * 2 );
+            memcpy(textmemptr + csr_y * VGA_WIDTH + csr_x,
+                temp,
+                (furthest_writable - csr_y * VGA_WIDTH - csr_x) * 2 );
+            memsetw(textmemptr + furthest_writable - 1, blank, 1);
+            
+            furthest_writable--;
         }
     }
     /* Handles a tab by incrementing the cursor's x, but only
@@ -172,9 +182,24 @@ void keyboard_putch(unsigned char c)
     *  Index = [(y * width) + x] */
     else if(c >= ' ') /* For all normal/printable characters */
     {
+        if(csr_y * VGA_WIDTH + csr_x < furthest_writable) {
+            char temp[MAX_CMD_LENGTH];
+
+            memcpy(temp, 
+                textmemptr + csr_y * VGA_WIDTH + csr_x,
+                (furthest_writable - csr_y * VGA_WIDTH - csr_x) * 2 );
+            memcpy(textmemptr + csr_y * VGA_WIDTH + csr_x + 1, 
+                temp,
+                (furthest_writable - csr_y * VGA_WIDTH - csr_x) * 2 );
+
+            furthest_writable++;
+        } 
+
         where = textmemptr + (csr_y * VGA_WIDTH + csr_x);
         *where = c | att;   /* Character AND attributes: color */
         csr_x++;
+
+
         // screen_data[screen_index++] = c;
     }
 
@@ -185,6 +210,9 @@ void keyboard_putch(unsigned char c)
         csr_x = 0;
         csr_y++;
     }
+
+    if(csr_y * VGA_WIDTH + csr_x > furthest_writable)
+        furthest_writable = csr_y * VGA_WIDTH + csr_x;
 
     /* Scroll the screen if needed, and finally move the cursor */
     scroll();
@@ -198,22 +226,23 @@ void putch(unsigned char c)
     unsigned att = attrib << 8;
 
     /* Handle a backspace, by moving the cursor back one space */
-    if(c == 0x08) {   
+    if(c == 0x08) {
+        puts("Backspace");   
         /* Testing to see if the cell before is writable */
-        if( last_writable < (csr_y * VGA_WIDTH + csr_x) ) {
-            if(csr_x > 0) {
-                csr_x--;
-            } else {
-                if(csr_y) { /* csr_y goes from 0-VGA_HEIGHT inclusive */
-                    csr_x = VGA_WIDTH - 1; /* csr_x position goes from 0-79 inclusive */
-                    csr_y--;
-                }
-                /* else: do nothing */
-            }
+        // if( last_writable < (csr_y * VGA_WIDTH + csr_x) ) {
+        //     if(csr_x > 0) {
+        //         csr_x--;
+        //     } else {
+        //         if(csr_y) { /* csr_y goes from 0-VGA_HEIGHT inclusive */
+        //             csr_x = VGA_WIDTH - 1;  csr_x position goes from 0-79 inclusive 
+        //             csr_y--;
+        //         }
+        //         /* else: do nothing */
+        //     }
 
-            unsigned blank = 0x20 | (attrib << 8);
-            memsetw (textmemptr + csr_x + csr_y * VGA_WIDTH, blank, 1);
-        }
+        //     unsigned blank = 0x20 | (attrib << 8);
+        //     memsetw (textmemptr + csr_x + csr_y * VGA_WIDTH, blank, 1);
+        // }
     }
     /* Handles a tab by incrementing the cursor's x, but only
     *  to a point that will make it divisible by 8 */
@@ -261,6 +290,7 @@ void putch(unsigned char c)
     /* Move writable index to current cursor location */
     last_writable = csr_y * VGA_WIDTH + csr_x;
 
+
     /* Scroll the screen if needed, and finally move the cursor */
     scroll();
     move_csr();
@@ -294,7 +324,7 @@ void save_screen_data(void)
 {
     size = csr_y * VGA_WIDTH * 2; /* Multiply by 2 because it packs the character AND the color */
     original_csr = csr_y * VGA_WIDTH + csr_x;
-    
+
     memcpy(original_screen_data, textmemptr, size);
 }
 

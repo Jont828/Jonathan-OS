@@ -17,7 +17,8 @@ void kmain(void)
     puts("Booting Jonathan's OS from Bochs:\n\n");
 
     start_terminal();
-   
+ 
+        
     // __asm__ __volatile__ ("cli"); /* Clear interrupts */
     irq_uninstall_handler(1); /* Uninstalls keyboard */
 

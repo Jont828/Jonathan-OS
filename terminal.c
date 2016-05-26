@@ -1,9 +1,5 @@
 #include "system.h"
 
-#define MAX_CMD_LENGTH  256
-#define MAX_CMD_DESC_LENGTH 256
-#define CMD_HISTORY_LENGTH  4
-
 int get_command(char *buffer, int lim);
 
 /* Local command functions */
@@ -23,6 +19,8 @@ struct command {
     char desc[MAX_CMD_DESC_LENGTH];
     void (*func)(char *);
 };
+
+extern int last_writable, furthest_writable, csr_x, csr_y;
 
 struct command command_list[] = 
 { 
@@ -68,11 +66,14 @@ int stop = 0;
 
 char cmd_history[CMD_HISTORY_LENGTH][MAX_CMD_LENGTH];
 // char username[MAX_CMD_LENGTH];
-char username[] = "jtong";
+char username[] = "user";
 
 /* start_terminal() is in system.h */
 void start_terminal()
 {
+    puts("Welcome to Jonathan's OS, a simple OS with a basic Command Line Interface (CLI)\n");
+    puts("Type \'help\' for a list of commands\n\n");
+
     int size = (int) sizeof(command_list) / sizeof(struct command);
     struct command temp;
 
@@ -105,7 +106,7 @@ void start_terminal()
     int history_index = 0;
 
     // puts("Enter your username: ");
-    // get_command(username, MAX_CMD_LENGTH);
+    // getline(username, MAX_CMD_LENGTH);
 
     char buffer[1024];
     char cmd[MAX_CMD_LENGTH];
@@ -158,22 +159,105 @@ void start_terminal()
 * Handles backspaces as well, will add tab completion and arrow keys for cmd history */
 int get_command(char *buffer, int lim)
 {
-    int i=0;
-    while(i < (lim-1) && (buffer[i] = getchar()) != '\n') {
-        if(buffer[i] == '\b') {
-            if(i != 0) {
-                buffer[i-1] = '\0';
-                buffer[i] = '\0';
-                i = i-1;
+    char temp[MAX_CMD_LENGTH];
+    int length_to_copy;
+
+    int cmd_length=0;
+    char c;
+    while(cmd_length < (lim-1) && (c = getchar()) != '\n') {
+        temp[0] = '\0'; /* Resets the temp array for each loop */
+        length_to_copy = furthest_writable - (csr_y * VGA_WIDTH + csr_x);
+
+        if(csr_y * VGA_WIDTH + csr_x < furthest_writable) {
+            /* Handles buffer once arrow keys have been used to shift the cursor */
+            if(c == '\b') {
+                /* Handles backspaces when cursor is in the middle of the buffer */
+                strncpy(temp, 
+                    buffer + cmd_length - length_to_copy,
+                    length_to_copy);
+
+                strncpy(buffer + cmd_length - 1 - length_to_copy, 
+                    temp,
+                    length_to_copy);
+
+                buffer[cmd_length-1] = '\0';
+
+                cmd_length--;
+            } else {
+                /* Handles typing when arrow keys have been used (typing into the middle of the bufffer) */
+                strncpy(temp, 
+                    buffer + cmd_length - length_to_copy,
+                    length_to_copy);
+
+                strncpy(buffer + cmd_length + 1 - length_to_copy, 
+                    temp,
+                    length_to_copy);
+
+                buffer[cmd_length - length_to_copy ] = c;
+
+                cmd_length++;
             }
+
         } else {
-            i++;
+            /* Handles typing and backspaces at the end of the buffer (left/right arrow keys weren't used) */
+            if(c == '\b') {
+                /* Handles backspaces at the end of the buffer (not in the middle of the string) */
+                buffer[cmd_length-1] = '\0';
+                buffer[cmd_length] = '\0';
+                cmd_length--;
+            } else {
+                buffer[cmd_length] = c;
+                cmd_length++;
+            }
         }
-    }
 
-    buffer[i] = '\0';
+        /* Alternate implementation */
 
-    return i;
+        // if(c == '\b') {
+        //     /* Handles backspaces in the buffer */
+        //     if(i != 0) {
+        //         if(csr_y * VGA_WIDTH + csr_x < furthest_writable) {
+        //             strncpy(temp, 
+        //                 buffer + i - length_to_copy,
+        //                 length_to_copy);
+
+        //             strncpy(buffer + i - 1 - length_to_copy, 
+        //                 temp,
+        //                 length_to_copy);
+
+        //             buffer[i-1] = '\0';
+
+        //         } else {
+        //             buffer[i-1] = '\0';
+        //             buffer[i] = '\0';
+        //             i = i-1;
+        //         }
+
+        //         i--;
+        //     }
+        // } else if(csr_y * VGA_WIDTH + csr_x < furthest_writable) {
+
+        //     strncpy(temp, 
+        //         buffer + i - length_to_copy,
+        //         length_to_copy);
+
+        //     strncpy(buffer + i + 1 - length_to_copy, 
+        //         temp,
+        //         length_to_copy);
+
+        //     buffer[i - length_to_copy ] = c;
+
+        //     i++;
+        // } else {
+        //     buffer[i] = c;
+        //     i++;
+        // }
+
+    } /* while loop */
+
+    buffer[cmd_length] = '\0';
+
+    return cmd_length;
 }
 
 /* Separates the command from its arguments and puts them into cmd[] and args[], respectively */
@@ -269,7 +353,7 @@ void who(char text[]) {
 }
 
 void date() {
-    extern time_since_boot;
+    extern int time_since_boot;
     puts("System has been active for ");
     putint(time_since_boot);
     puts(" seconds\n");

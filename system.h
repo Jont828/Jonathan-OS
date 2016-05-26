@@ -23,6 +23,7 @@
 	int isalpha(char c); 
 	void put_buffer(char *text);
 	void process_buffer(char *dest, char *raw);
+	char *strncpy(char *dest, const char *src, int n);
  
 /* UTILITIES.C */
 
@@ -164,6 +165,10 @@
 /* EDIT.C */
 
 /* TERMINAL.C */
+
+	#define MAX_CMD_LENGTH  256
+	#define MAX_CMD_DESC_LENGTH 256
+	#define CMD_HISTORY_LENGTH  4
 
 	void start_terminal();
 

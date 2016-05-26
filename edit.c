@@ -2,14 +2,6 @@
 
 int edit_get_text(char *buffer, int lim);
 
-extern textmemptr;
-extern csr_y;
-extern csr_x;
-
-extern screen_data[];
-extern screen_index;
-extern last_writable;
-
 void editor(char *editor_buffer, int lim) {
     save_screen_data();
 
@@ -17,7 +9,7 @@ void editor(char *editor_buffer, int lim) {
 	puts("Type some stuff here (press ESC to exit):\n");
 	int len = edit_get_text(editor_buffer, lim);
 	cls();
-    
+
     restore_screen_data();
 }
 
