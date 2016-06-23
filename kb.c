@@ -1,6 +1,6 @@
 #include "system.h"
 
-/* KBDUS means US Keyboard Layout. This is a scancode table
+/* keyboard_us means US Keyboard Layout. This is a scancode table
 *  used to layout a standard US keyboard. I have left some
 *  comments in to give you an idea of what key is what, even
 *  though I set it's array index to 0. You can change that to
@@ -11,12 +11,15 @@ int left_shift_pressed = 0;
 int right_shift_pressed = 0;
 int caps_lock_on = 0;
 
+int cmd_history_scroll_up = 0;
+int cmd_history_scroll_down = 0;
+
 extern last_writable;
 extern furthest_writable;
 extern csr_x;
 extern csr_y;
 
-unsigned char kbdus[128] =
+unsigned char keyboard_us[128] =
 {
     0,  27, '1', '2', '3', '4', '5', '6', '7', '8',	/* 9 */
   '9', '0', '-', '=', '\b',	/* Backspace */
@@ -56,7 +59,7 @@ unsigned char kbdus[128] =
     0,	/* All other keys are undefined */
 };		
 
-unsigned char kbdusshifted[128] =
+unsigned char keyboard_us_shifted[128] =
 {
     0,  27, '!', '@', '#', '$', '%', '^', '&', '*', /* 9 */
   '(', ')', '-', '=', '\b', /* Backspace */
@@ -140,22 +143,38 @@ void keyboard_handler(struct regs *r)
         *  you would add 128 to the scancode when you look for it */
 
         // putint(scancode);
+        // putch('\n');
 
         /* SCANCODE FOR PRESSING LEFT SHIFT */
         if(scancode == 42) {
             left_shift_pressed = 1;
         }
+
         /* SCANCODE FOR PRESSING RIGHT SHIFT */
         if(scancode == 54) {
             right_shift_pressed = 1;
         }
 
+        /* SCANCODE FOR PRESSING LEFT ARROW */
         if((csr_y * 80 + csr_x) > last_writable)
             if(scancode == 75)
                 csr_x--;
+
+        /* SCANCODE FOR PRESSING RIGHT ARROW */
         if((csr_y * 80 + csr_x) < furthest_writable)
             if(scancode == 77)
                 csr_x++;
+
+
+        /* SCANCODE FOR PRESSING UP ARROW */
+        if(scancode == 72) {
+            cmd_history_scroll_up = 1;
+        }
+
+        /* SCANCODE FOR PRESSING DOWN ARROW */
+        if(scancode == 80) {
+            cmd_history_scroll_down = 1;
+        }
 
 
 
@@ -176,25 +195,25 @@ void keyboard_handler(struct regs *r)
 
         if(caps_lock_on) {
             if(left_shift_pressed || right_shift_pressed)
-                if(isalpha(kbdus[scancode]))
-                    current = kbdus[scancode];
+                if(isalpha(keyboard_us[scancode]))
+                    current = keyboard_us[scancode];
                 else
-                    current = kbdusshifted[scancode];
+                    current = keyboard_us_shifted[scancode];
             else
-                if(isalpha(kbdus[scancode]))
-                    current = kbdusshifted[scancode];
+                if(isalpha(keyboard_us[scancode]))
+                    current = keyboard_us_shifted[scancode];
                 else
-                    current = kbdus[scancode];
+                    current = keyboard_us[scancode];
         } else {
             if(left_shift_pressed || right_shift_pressed)
-                current = kbdusshifted[scancode];
+                current = keyboard_us_shifted[scancode];
             else
-                current = kbdus[scancode];
+                current = keyboard_us[scancode];
         }
 
         keyboard_putch(current);
     }
-    // putch(kbdus[scancode]); 
+    // putch(keyboard_us[scancode]); 
     // puts("\nRead a character!");
 }
 
@@ -207,6 +226,7 @@ void keyboard_install()
 int getchar() {
     char temp;
 
+    /* current is the last character entered by the keyboard and processed by keyboard_handler() */
     while(current == 0)
         ;
 

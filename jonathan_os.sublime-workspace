@@ -4,6 +4,250 @@
 		"selected_items":
 		[
 			[
+				"csr",
+				"csr_y"
+			],
+			[
+				"cmd",
+				"cmd_history_scroll_up"
+			],
+			[
+				"text",
+				"textmemptr"
+			],
+			[
+				"tem",
+				"textmemptr"
+			],
+			[
+				"cm",
+				"cmd_history_scroll_down"
+			],
+			[
+				"len",
+				"length_to_copy"
+			],
+			[
+				"le",
+				"length_to_move"
+			],
+			[
+				"mem",
+				"memsetw"
+			],
+			[
+				"las",
+				"last_writable"
+			],
+			[
+				"cs",
+				"csr_y"
+			],
+			[
+				"VG",
+				"VGA_WIDTH"
+			],
+			[
+				"time_i",
+				"time_since_boot"
+			],
+			[
+				"sc",
+				"screen_data"
+			],
+			[
+				"scre",
+				"screen_data"
+			],
+			[
+				"screen_",
+				"screen_index"
+			],
+			[
+				"V",
+				"VGA_WIDTH"
+			],
+			[
+				"test",
+				"testptr"
+			],
+			[
+				"te",
+				"textmemptr"
+			],
+			[
+				"b",
+				"buffer"
+			],
+			[
+				"edit",
+				"edit_get_text"
+			],
+			[
+				"comma",
+				"command_list"
+			],
+			[
+				"comm",
+				"command_list"
+			],
+			[
+				"MAX",
+				"MAX_CMD_DESC_LENGTH"
+			],
+			[
+				"VGA",
+				"VGA_WIDTH"
+			],
+			[
+				"str",
+				"strcpy"
+			],
+			[
+				"histo",
+				"history_index"
+			],
+			[
+				"CMD",
+				"CMD_HISTORY_LENGTH-1"
+			],
+			[
+				"his",
+				"history_index"
+			],
+			[
+				"exit",
+				"exit_terminal"
+			],
+			[
+				"com",
+				"command_parser"
+			],
+			[
+				"co",
+				"command"
+			],
+			[
+				"si",
+				"sizeof"
+			],
+			[
+				"_",
+				"__volatile__"
+			],
+			[
+				"___",
+				"__asm__"
+			],
+			[
+				"editor",
+				"editor_buffer"
+			],
+			[
+				"edi",
+				"edit_get_text"
+			],
+			[
+				"ed",
+				"editor_buffer"
+			],
+			[
+				"e",
+				"edit_get_text"
+			],
+			[
+				"ke",
+				"keyboard_install"
+			],
+			[
+				"keyb",
+				"keyboard_uninstall"
+			],
+			[
+				"raw",
+				"raw_index"
+			],
+			[
+				"des",
+				"dest_index"
+			],
+			[
+				"con",
+				"consecutive_backspaces"
+			],
+			[
+				"wr",
+				"writable_index"
+			],
+			[
+				"wri",
+				"writable_index"
+			],
+			[
+				"ser",
+				"serial_putch"
+			],
+			[
+				"ca",
+				"cannot_write"
+			],
+			[
+				"kd",
+				"kbdus"
+			],
+			[
+				"is",
+				"isalpha"
+			],
+			[
+				"cap",
+				"caps_lock_on"
+			],
+			[
+				"shift",
+				"shift_pressed"
+			],
+			[
+				"kb",
+				"kbdus"
+			],
+			[
+				"temp",
+				"temp_count"
+			],
+			[
+				"shif",
+				"shift_pressed"
+			],
+			[
+				"c",
+				"current"
+			],
+			[
+				"key",
+				"keyboard_handler"
+			],
+			[
+				"timer",
+				"timer_handler"
+			],
+			[
+				"seri",
+				"serial_text"
+			],
+			[
+				"move",
+				"move_csr"
+			],
+			[
+				"fb",
+				"fb_write_cell"
+			],
+			[
+				"set",
+				"settextcolor"
+			],
+			[
 				"has",
 				"has_bully_varying"
 			],
@@ -12,24 +256,12 @@
 				"train_set"
 			],
 			[
-				"com",
-				"command"
-			],
-			[
-				"comm",
-				"command_token"
-			],
-			[
 				"xml",
 				"xml_escape_parser"
 			],
 			[
 				"p",
 				"num_partitions"
-			],
-			[
-				"c",
-				"current_accuracy"
 			],
 			[
 				"par",
@@ -65,10 +297,6 @@
 			],
 			[
 				"tes",
-				"testdict"
-			],
-			[
-				"test",
 				"testdict"
 			],
 			[
@@ -120,14 +348,6 @@
 				"theNumRaces"
 			],
 			[
-				"b",
-				"theBirthYear"
-			],
-			[
-				"wr",
-				"written_message"
-			],
-			[
 				"parse",
 				"parsexml"
 			],
@@ -142,10 +362,6 @@
 			[
 				"re",
 				"remove"
-			],
-			[
-				"co",
-				"contains"
 			],
 			[
 				"print",
@@ -196,10 +412,6 @@
 				"success"
 			],
 			[
-				"ca",
-				"calc_ratio"
-			],
-			[
 				"fire",
 				"firefighter"
 			],
@@ -226,10 +438,6 @@
 			[
 				"new",
 				"newCapacity"
-			],
-			[
-				"set",
-				"setNumerator"
 			],
 			[
 				"de",
@@ -276,10 +484,6 @@
 				"rootNewtonDiff"
 			],
 			[
-				"e",
-				"expression"
-			],
-			[
 				"subPr",
 				"subPrivate"
 			],
@@ -310,104 +514,16 @@
 			[
 				"pub",
 				"publicString"
-			],
-			[
-				"doPr",
-				"doProtectedStuff"
-			],
-			[
-				"doPri",
-				"doPrivateStuff"
-			],
-			[
-				"na",
-				"names"
-			],
-			[
-				"str",
-				"string"
-			],
-			[
-				"name",
-				"namefn"
-			],
-			[
-				"ar",
-				"array"
-			],
-			[
-				"read",
-				"readindex"
-			],
-			[
-				"array",
-				"arraysize"
-			],
-			[
-				"li",
-				"line"
-			],
-			[
-				"fi",
-				"file"
-			],
-			[
-				"file",
-				"filename"
-			],
-			[
-				"fun",
-				"funcname"
-			],
-			[
-				"pr",
-				"println"
-			],
-			[
-				"ma",
-				"May"
-			],
-			[
-				"Ju",
-				"June"
-			],
-			[
-				"Test",
-				"TestClass"
-			],
-			[
-				"mess",
-				"message"
-			],
-			[
-				"fir",
-				"firstname"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "io.s",
+			"file": "Makefile",
 			"settings":
 			{
-				"buffer_size": 920,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "io.h",
-			"settings":
-			{
-				"buffer_size": 527,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "loader2.s",
-			"settings":
-			{
-				"buffer_size": 7050,
+				"buffer_size": 937,
 				"line_ending": "Unix"
 			}
 		},
@@ -415,25 +531,7 @@
 			"file": "loader.s",
 			"settings":
 			{
-				"buffer_size": 2198,
-				"line_ending": "Unix",
-				"name": "KERNEL_STACK_SIZE equ 4096                  ; size"
-			}
-		},
-		{
-			"file": "isrs.c",
-			"settings":
-			{
-				"buffer_size": 4685,
-				"line_ending": "Unix",
-				"name": "#include \"system.h\""
-			}
-		},
-		{
-			"file": "Makefile",
-			"settings":
-			{
-				"buffer_size": 882,
+				"buffer_size": 8677,
 				"line_ending": "Unix"
 			}
 		},
@@ -441,23 +539,74 @@
 			"file": "kmain.c",
 			"settings":
 			{
-				"buffer_size": 6926,
+				"buffer_size": 600,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "scrn.c",
+			"file": "terminal.c",
 			"settings":
 			{
-				"buffer_size": 4979,
+				"buffer_size": 10079,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "scrn.h",
+			"file": "edit.c",
 			"settings":
 			{
-				"buffer_size": 196,
+				"buffer_size": 598,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "utilities.c",
+			"settings":
+			{
+				"buffer_size": 4029,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "timer.c",
+			"settings":
+			{
+				"buffer_size": 1729,
+				"line_ending": "Unix",
+				"name": "#include < system.h >"
+			}
+		},
+		{
+			"file": "gdt.c",
+			"settings":
+			{
+				"buffer_size": 2700,
+				"line_ending": "Unix",
+				"name": "/* Defines a GDT entry. We say packed, because it"
+			}
+		},
+		{
+			"file": "irq.c",
+			"settings":
+			{
+				"buffer_size": 3919,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "isrs.c",
+			"settings":
+			{
+				"buffer_size": 4653,
+				"line_ending": "Unix",
+				"name": "#include \"system.h\""
+			}
+		},
+		{
+			"file": "serial.c",
+			"settings":
+			{
+				"buffer_size": 2829,
 				"line_ending": "Unix"
 			}
 		},
@@ -465,7 +614,7 @@
 			"file": "system.c",
 			"settings":
 			{
-				"buffer_size": 667,
+				"buffer_size": 564,
 				"line_ending": "Unix"
 			}
 		},
@@ -473,26 +622,38 @@
 			"file": "system.h",
 			"settings":
 			{
-				"buffer_size": 753,
+				"buffer_size": 4516,
 				"line_ending": "Unix",
 				"name": "#ifndef __SYSTEM_H"
 			}
 		},
 		{
-			"file": "gdt.c",
+			"file": "scrn.c",
 			"settings":
 			{
-				"buffer_size": 2678,
-				"line_ending": "Unix",
-				"name": "/* Defines a GDT entry. We say packed, because it"
+				"buffer_size": 10101,
+				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "gdt.h",
+			"contents": "#include \"system.h\"\n\n/* keyboard_us means US Keyboard Layout. This is a scancode table\n*  used to layout a standard US keyboard. I have left some\n*  comments in to give you an idea of what key is what, even\n*  though I set it's array index to 0. You can change that to\n*  whatever you want using a macro, if you wish! */\n\nchar current = 0;\nint left_shift_pressed = 0;\nint right_shift_pressed = 0;\nint caps_lock_on = 0;\n\nint cmd_history_scroll_up = 0;\nint cmd_history_scroll_down = 0;\n\nextern last_writable;\nextern furthest_writable;\nextern csr_x;\nextern csr_y;\n\nunsigned char keyboard_us[128] =\n{\n    0,  27, '1', '2', '3', '4', '5', '6', '7', '8',	/* 9 */\n  '9', '0', '-', '=', '\\b',	/* Backspace */\n  '\\t',			/* Tab */\n  'q', 'w', 'e', 'r',	/* 19 */\n  't', 'y', 'u', 'i', 'o', 'p', '[', ']', '\\n',	/* Enter key */\n    0,			/* 29   - Control */\n  'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', ';',	/* 39 */\n '\\'', '`',   0,		/* Left shift */\n '\\\\', 'z', 'x', 'c', 'v', 'b', 'n',			/* 49 */\n  'm', ',', '.', '/',   0,				/* Right shift */\n  '*',\n    0,	/* Alt */\n  ' ',	/* Space bar */\n    0,	/* Caps lock */\n    0,	/* 59 - F1 key ... > */\n    0,   0,   0,   0,   0,   0,   0,   0,\n    0,	/* < ... F10 */\n    0,	/* 69 - Num lock*/\n    0,	/* Scroll Lock */\n    0,	/* Home key */\n    0x60,	/* Up Arrow */\n    0,	/* Page Up */\n  '-',\n    0,	/* Left Arrow */\n    0,\n    0,	/* Right Arrow */\n  '+',\n    0,	/* 79 - End key*/\n    0,	/* Down Arrow */\n    0,	/* Page Down */\n    0,	/* Insert Key */\n    0,	/* Delete Key */\n    0,   0,   0,\n    0,	/* F11 Key */\n    0,	/* F12 Key */\n    0,	/* All other keys are undefined */\n};		\n\nunsigned char keyboard_us_shifted[128] =\n{\n    0,  27, '!', '@', '#', '$', '%', '^', '&', '*', /* 9 */\n  '(', ')', '-', '=', '\\b', /* Backspace */\n  '\\t',         /* Tab */\n  'Q', 'W', 'E', 'R',   /* 19 */\n  'T', 'Y', 'U', 'I', 'O', 'P', '{', '}', '\\n', /* Enter key */\n    0,          /* 29   - Control */\n  'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', ':', /* 39 */\n '\\\"', '~',   0,        /* Left shift */\n '|', 'Z', 'X', 'C', 'V', 'B', 'N',            /* 49 */\n  'M', '<', '>', '?',   0,              /* Right shift */\n  '*',\n    0,  /* Alt */\n  ' ',  /* Space bar */\n    0,  /* Caps lock */\n    0,  /* 59 - F1 key ... > */\n    0,   0,   0,   0,   0,   0,   0,   0,\n    0,  /* < ... F10 */\n    0,  /* 69 - Num lock*/\n    0,  /* Scroll Lock */\n    0,  /* Home key */\n    0,  /* Up Arrow */\n    0,  /* Page Up */\n  '-',\n    0,  /* Left Arrow */\n    0,\n    0,  /* Right Arrow */\n  '+',\n    0,  /* 79 - End key*/\n    0,  /* Down Arrow */\n    0,  /* Page Down */\n    0,  /* Insert Key */\n    0,  /* Delete Key */\n    0,   0,   0,\n    0,  /* F11 Key */\n    0,  /* F12 Key */\n    0,  /* All other keys are undefined */\n};  \n\n/* Handles the keyboard interrupt */\nvoid keyboard_handler(struct regs *r)\n// void keyboard_handler()\n{\n    unsigned char scancode;\n\n    /* Read from the keyboard's data buffer */\n    scancode = inportb(0x60);\n\n    /* If the top bit of the byte we read from the keyboard is\n    *  set, that means that a key has just been released */\n    if (scancode & 0x80)\n    {\n        /* You can use this one to see if the user released the\n        *  shift, alt, or control keys... */\n\n        \n        /* SCANCODE FOR RELEASING LEFT SHIFT */\n        if(scancode == 170) {\n            left_shift_pressed = 0;\n        }\n        /* SCANCODE FOR RELEASING RIGHT SHIFT */\n        if(scancode == 182) {\n            right_shift_pressed = 0;\n        }\n\n\n    } \n    else\n    {\n        /* Here, a key was just pressed. Please note that if you\n        *  hold a key down, you will get repeated key press\n        *  interrupts. */\n\n        /* Just to show you how this works, we simply translate\n        *  the keyboard scancode into an ASCII value, and then\n        *  display it to the screen. You can get creative and\n        *  use some flags to see if a shift is pressed and use a\n        *  different layout, or you can add another 128 entries\n        *  to the above layout to correspond to 'shift' being\n        *  held. If shift is held using the larger lookup table,\n        *  you would add 128 to the scancode when you look for it */\n\n        // putint(scancode);\n        // putch('\\n');\n\n        /* SCANCODE FOR PRESSING LEFT SHIFT */\n        if(scancode == 42) {\n            left_shift_pressed = 1;\n        }\n\n        /* SCANCODE FOR PRESSING RIGHT SHIFT */\n        if(scancode == 54) {\n            right_shift_pressed = 1;\n        }\n\n        /* SCANCODE FOR PRESSING LEFT ARROW */\n        if((csr_y * 80 + csr_x) > last_writable)\n            if(scancode == 75)\n                csr_x--;\n\n        /* SCANCODE FOR PRESSING RIGHT ARROW */\n        if((csr_y * 80 + csr_x) < furthest_writable)\n            if(scancode == 77)\n                csr_x++;\n\n\n        /* SCANCODE FOR PRESSING UP ARROW */\n        if(scancode == 72) {\n            cmd_history_scroll_up = 1;\n        }\n\n        /* SCANCODE FOR PRESSING DOWN ARROW */\n        if(scancode == 80) {\n            cmd_history_scroll_down = 1;\n        }\n\n\n\n        /* SCANCODES FOR PRESSING CAPS LOCK */\n        if(scancode == 58) {\n            // puts(\"User pressed caps lock!\\n\");\n            if(caps_lock_on) {\n                caps_lock_on = 0;\n                // puts(\"caps lock off\\n\");\n            }\n            else {\n                caps_lock_on = 1;\n                // puts(\"caps lock on\\n\");\n            }\n        }\n\n        // puts(\"A key was pressed\");\n\n        if(caps_lock_on) {\n            if(left_shift_pressed || right_shift_pressed)\n                if(isalpha(keyboard_us[scancode]))\n                    current = keyboard_us[scancode];\n                else\n                    current = keyboard_us_shifted[scancode];\n            else\n                if(isalpha(keyboard_us[scancode]))\n                    current = keyboard_us_shifted[scancode];\n                else\n                    current = keyboard_us[scancode];\n        } else {\n            if(left_shift_pressed || right_shift_pressed)\n                current = keyboard_us_shifted[scancode];\n            else\n                current = keyboard_us[scancode];\n        }\n\n        keyboard_putch(current);\n    }\n    // putch(keyboard_us[scancode]); \n    // puts(\"\\nRead a character!\");\n}\n\n/* Installs the keyboard handler into IRQ1 */\nvoid keyboard_install()\n{\n    irq_install_handler(1, keyboard_handler);\n}\n\nint getchar() {\n    char temp;\n\n    /* current is the last character entered by the keyboard and processed by keyboard_handler() */\n    while(current == 0)\n        ;\n\n    temp = current;\n    current = 0;\n\n    return temp;\n}\n\n/* Read characters into buffer until user presses '\\n' and return length. */\nint getline(char *buffer, int lim)\n{\n    int i=0;\n    while(i < (lim-1) && (buffer[i] = getchar()) != '\\n') {\n        if(buffer[i] == '\\b') {\n            if(i != 0) {\n                buffer[i-1] = '\\0';\n                buffer[i] = '\\0';\n                i = i-1;\n            }\n        } else {\n            i++;\n        }\n    }\n\n    buffer[i] = '\\0';\n\n    return i;\n}",
+			"file": "kb.c",
+			"file_size": 7028,
+			"file_write_time": 1465177684000000,
 			"settings":
 			{
-				"buffer_size": 645,
-				"line_ending": "Unix"
+				"buffer_size": 7031,
+				"line_ending": "Unix",
+				"name": "/* KBDUS means US Keyboard Layout. This is a scanc"
+			}
+		},
+		{
+			"file": "link.ld",
+			"settings":
+			{
+				"buffer_size": 352,
+				"line_ending": "Unix",
+				"name": "OUTPUT_FORMAT(\"binary\")"
 			}
 		},
 		{
@@ -500,14 +661,6 @@
 			"settings":
 			{
 				"buffer_size": 2249,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "idt.h",
-			"settings":
-			{
-				"buffer_size": 144,
 				"line_ending": "Unix"
 			}
 		}
@@ -536,7 +689,30 @@
 	},
 	"file_history":
 	[
+		"/home/ctong/Desktop/Linux Programming/C/ReplaceString.c",
+		"/home/ctong/Desktop/Linux Programming/C/Alphabetical.c",
+		"/home/ctong/Desktop/Book OS/terminal.c",
+		"/home/ctong/Desktop/Book OS/edit.c",
+		"/home/ctong/Desktop/Book OS/system.c",
+		"/home/ctong/Desktop/Book OS/idt.c",
+		"/home/ctong/Desktop/Book OS/cmd.c",
+		"/home/ctong/Desktop/Book OS/loader.s",
+		"/home/ctong/.config/sublime-text-2/Packages/User/C.sublime-settings",
+		"/home/ctong/Desktop/Book OS/bochslog.txt",
+		"/home/ctong/Desktop/Book OS/Old Files/loader.s",
+		"/home/ctong/Desktop/Book OS/irq.c",
+		"/home/ctong/Desktop/Book OS/string.c",
+		"/home/ctong/Desktop/Book OS/README.md",
+		"/home/ctong/Desktop/Book OS/link_little.ld",
+		"/home/ctong/Desktop/Book OS/loader_little.s",
+		"/home/ctong/Desktop/Book OS/link.ld",
+		"/home/ctong/Desktop/Book OS/loader2.s",
+		"/home/ctong/Desktop/Book OS/idt.h",
 		"/home/ctong/Desktop/Book OS/scrn.h",
+		"/home/ctong/Desktop/Book OS/gdt.h",
+		"/home/ctong/Desktop/Book OS/framebuffer.c",
+		"/home/ctong/Desktop/Book OS/io.s",
+		"/home/ctong/Desktop/Book OS/io.h",
 		"/home/ctong/Desktop/Book OS/isrs.h",
 		"/home/ctong/Desktop/Book OS/gdt.s",
 		"/home/ctong/Desktop/Linux Programming/Python/message_feature_extractor_2yes.py",
@@ -640,30 +816,7 @@
 		"/home/ctong/Desktop/Linux Programming/C++/ctof.cpp",
 		"/home/ctong/Desktop/Linux Programming/C++/ftoc.cpp",
 		"/home/ctong/Desktop/Linux Programming/C++/Encrypt.cpp",
-		"/home/ctong/Desktop/Linux Programming/C++/Greetings.cpp",
-		"/home/ctong/Desktop/Linux Programming/C++/HelloWorld.cpp",
-		"/home/ctong/Desktop/Linux Programming/C++/PrintArgs.cpp",
-		"/home/ctong/Desktop/Linux Programming/C++/RemoveExtraSpaces.cpp",
-		"/home/ctong/Desktop/Linux Programming/C/copyfilecaps.c",
-		"/home/ctong/Desktop/Linux Programming/C/copyfile.c",
-		"/home/ctong/Desktop/Linux Programming/C/Countdown.c",
-		"/home/ctong/Desktop/Linux Programming/Java/TestClass.java",
-		"/home/ctong/Desktop/Linux Programming/C/Countdownr.c",
-		"/home/ctong/Desktop/Linux Programming/C/testdir/main.c",
-		"/home/ctong/Desktop/Linux Programming/C/MonthDays.c",
-		"/home/ctong/Desktop/Linux Programming/C/CartToPol.c",
-		"/home/ctong/Desktop/Linux Programming/C/enumtest.c",
-		"/home/ctong/Desktop/Linux Programming/C/macrotest.c",
-		"/home/ctong/Desktop/Linux Programming/C/NumDatabase.c",
-		"/home/ctong/Desktop/Linux Programming/C/RotateBits.c",
-		"/home/ctong/Desktop/Linux Programming/C/ifdeftest.c",
-		"/home/ctong/Desktop/Linux Programming/C/IntSizeTest.c",
-		"/home/ctong/Desktop/Linux Programming/C/BitTest.c",
-		"/home/ctong/Desktop/Linux Programming/C/debugprintf.c",
-		"/home/ctong/Desktop/Linux Programming/C/BitShiftTest.c",
-		"/home/ctong/Desktop/Linux Programming/C/test.c",
-		"/home/ctong/Desktop/Linux Programming/C/test.h",
-		"/home/ctong/Desktop/Linux Programming/C/Battleship.c"
+		"/home/ctong/Desktop/Linux Programming/C++/Greetings.cpp"
 	],
 	"find":
 	{
@@ -681,6 +834,72 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"keyboard_us_shift",
+			"keyboard_usshifted",
+			"kbdus",
+			"att",
+			", ",
+			"editor",
+			"i",
+			"getchar",
+			"(furthest_writable - csr_y * VGA_WIDTH - csr_x)",
+			"length_to_copy",
+			"length_to_move",
+			"textmemptr",
+			"if",
+			"name",
+			"names",
+			"nameslength",
+			"time",
+			"screen_",
+			"textmemptr",
+			"screen",
+			"';\n",
+			"}",
+			"screen_data",
+			"csr_x",
+			"writable_index",
+			"getline",
+			"64",
+			"I",
+			"i",
+			"command_parser",
+			"exit",
+			"char",
+			"command_line",
+			"25",
+			"80",
+			"csr",
+			"int",
+			"nDone",
+			"opcode",
+			"$",
+			"stublet",
+			"sublet",
+			"SUBLET",
+			"isalpha",
+			"from",
+			"to",
+			"s2",
+			"s1",
+			"writable",
+			"cannot_write",
+			"writable",
+			";\n",
+			"stublet",
+			"loop",
+			"(int)",
+			"int",
+			"gdtflush",
+			"faulthandler",
+			"gdtload",
+			"idtload",
+			"void",
+			"flush",
+			"global",
+			"extern ",
+			");\n",
+			"outb",
 			"h",
 			" #",
 			"()\n",
@@ -742,80 +961,37 @@
 			"Numerator",
 			".denominator",
 			".numerator",
-			"rat(",
-			"return rat",
-			"rat.",
-			"rat",
-			"this->",
-			"r.",
-			"const Rational &r",
-			"simplify(rat)",
-			"checkDenominator(rat);",
-			"checkDenominator(*this);",
-			"this->",
-			");\n",
-			"a.",
-			"b.",
-			"print",
-			"{\n",
-			"double",
-			"this->index",
-			"this->radicand",
-			"origRadicand",
-			"origIndex",
-			"length",
-			"}\n",
-			"string",
-			"endl",
-			"cin",
-			"cout",
-			"arraysize",
-			"endl",
-			"cout",
-			"float",
-			"32",
-			"current",
-			";\n",
-			"int length",
-			"int start",
-			"*(message+i)",
-			"*(string+i)",
-			"today",
-			"tomorrow",
-			"primes",
-			"primes[i]",
-			"(int *)",
-			"numbers",
-			"bool",
-			".",
-			"unsigned long int",
-			"primes[i]",
-			"mod",
-			"v",
-			"val",
-			"kind",
-			"arr",
-			"showage",
-			"temp",
-			"more_numbers",
-			"  ",
-			") ",
-			"float",
-			"cin",
-			"cout",
-			"Age",
-			"record",
-			"Person",
-			"\";",
-			"sorted",
-			"n"
+			"rat("
 		],
 		"highlight": true,
-		"in_selection": true,
+		"in_selection": false,
 		"preserve_case": false,
 		"regex": false,
 		"replace_history":
 		[
+			"keyboard_us_shifted",
+			"keyboard_us_shift",
+			"keyboard_us",
+			"length_to_copy",
+			"// screen_data",
+			"last_writable",
+			"MAX_CMD_LENGTH",
+			"VGA_HEIGHT",
+			"VGA_WIDTH",
+			"src",
+			"dest",
+			"p2",
+			"p1",
+			"writable",
+			"cannot_write",
+			"gdt_flush",
+			"fault_handler",
+			"gdt_load",
+			"idt_load",
+			"extern void",
+			".global",
+			"",
+			"outportb",
 			"isr_common_stub",
 			"",
 			"int /*size_t*/",
@@ -903,161 +1079,23 @@
 	"groups":
 	[
 		{
-			"selected": 6,
+			"selected": 14,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "io.s",
-					"settings":
-					{
-						"buffer_size": 920,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								880,
-								880
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/R/R.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "io.h",
-					"settings":
-					{
-						"buffer_size": 527,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "loader2.s",
-					"settings":
-					{
-						"buffer_size": 7050,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								7050,
-								7050
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 614.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "loader.s",
-					"settings":
-					{
-						"buffer_size": 2198,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1871,
-								1871
-							]
-						],
-						"settings":
-						{
-							"auto_name": "KERNEL_STACK_SIZE equ 4096                  ; size",
-							"syntax": "Packages/R/R.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 936.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "isrs.c",
-					"settings":
-					{
-						"buffer_size": 4685,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								4557,
-								4557
-							]
-						],
-						"settings":
-						{
-							"auto_name": "#include \"system.h\"",
-							"syntax": "Packages/C++/C.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1814.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 5,
 					"file": "Makefile",
 					"settings":
 					{
-						"buffer_size": 882,
+						"buffer_size": 937,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								61,
-								61
+								395,
+								395
 							]
 						],
 						"settings":
@@ -1071,19 +1109,47 @@
 					"type": "text"
 				},
 				{
-					"buffer": 6,
-					"file": "kmain.c",
+					"buffer": 1,
+					"file": "loader.s",
 					"settings":
 					{
-						"buffer_size": 6926,
+						"buffer_size": 8677,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								6724,
-								6724
+								604,
+								604
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "kmain.c",
+					"settings":
+					{
+						"buffer_size": 600,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								361,
+								361
 							]
 						],
 						"settings":
@@ -1093,59 +1159,174 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 4539.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "terminal.c",
+					"settings":
+					{
+						"buffer_size": 10079,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4781,
+								4781
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2783.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "edit.c",
+					"settings":
+					{
+						"buffer_size": 598,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								63,
+								63
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "utilities.c",
+					"settings":
+					{
+						"buffer_size": 4029,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3892,
+								3892
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 3434.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "timer.c",
+					"settings":
+					{
+						"buffer_size": 1729,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								749,
+								749
+							]
+						],
+						"settings":
+						{
+							"auto_name": "#include < system.h >",
+							"syntax": "Packages/C++/C.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 7,
-					"file": "scrn.c",
+					"file": "gdt.c",
 					"settings":
 					{
-						"buffer_size": 4979,
+						"buffer_size": 2700,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1780,
-								1780
+								2012,
+								2012
 							]
 						],
 						"settings":
 						{
-							"auto_name": "",
+							"auto_name": "/* Defines a GDT entry. We say packed, because it",
 							"syntax": "Packages/C++/C.tmLanguage",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 3029.0,
+						"translation.y": 588.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 8,
-					"file": "scrn.h",
+					"file": "irq.c",
 					"settings":
 					{
-						"buffer_size": 196,
+						"buffer_size": 3919,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								153,
-								153
+								945,
+								945
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/C++/C++.tmLanguage"
+							"syntax": "Packages/C++/C.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -1155,18 +1336,47 @@
 				},
 				{
 					"buffer": 9,
-					"file": "system.c",
+					"file": "isrs.c",
 					"settings":
 					{
-						"buffer_size": 667,
+						"buffer_size": 4653,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								103,
-								103
+								855,
+								855
+							]
+						],
+						"settings":
+						{
+							"auto_name": "#include \"system.h\"",
+							"syntax": "Packages/C++/C.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 469.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "serial.c",
+					"settings":
+					{
+						"buffer_size": 2829,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2178,
+								2178
 							]
 						],
 						"settings":
@@ -1176,57 +1386,29 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 10,
-					"file": "system.h",
-					"settings":
-					{
-						"buffer_size": 753,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								496,
-								496
-							]
-						],
-						"settings":
-						{
-							"auto_name": "#ifndef __SYSTEM_H",
-							"syntax": "Packages/C++/C++.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1607.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 11,
-					"file": "gdt.c",
+					"file": "system.c",
 					"settings":
 					{
-						"buffer_size": 2678,
+						"buffer_size": 564,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								607,
-								607
+								63,
+								63
 							]
 						],
 						"settings":
 						{
-							"auto_name": "/* Defines a GDT entry. We say packed, because it",
 							"syntax": "Packages/C++/C.tmLanguage",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
@@ -1239,24 +1421,111 @@
 				},
 				{
 					"buffer": 12,
-					"file": "gdt.h",
+					"file": "system.h",
 					"settings":
 					{
-						"buffer_size": 645,
+						"buffer_size": 4516,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								645,
-								645
+								4236,
+								4236
 							]
 						],
 						"settings":
 						{
+							"auto_name": "#ifndef __SYSTEM_H",
 							"syntax": "Packages/C++/C++.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 2316.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 13,
+					"file": "scrn.c",
+					"settings":
+					{
+						"buffer_size": 10101,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3778,
+								3778
+							]
+						],
+						"settings":
+						{
+							"auto_name": "",
+							"syntax": "Packages/C++/C.tmLanguage",
 							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2727.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 14,
+					"file": "kb.c",
+					"settings":
+					{
+						"buffer_size": 7031,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								956,
+								956
+							]
+						],
+						"settings":
+						{
+							"auto_name": "/* KBDUS means US Keyboard Layout. This is a scanc",
+							"syntax": "Packages/C++/C.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 486.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 15,
+					"file": "link.ld",
+					"settings":
+					{
+						"buffer_size": 352,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								352,
+								352
+							]
+						],
+						"settings":
+						{
+							"auto_name": "OUTPUT_FORMAT(\"binary\")",
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
@@ -1266,7 +1535,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 13,
+					"buffer": 16,
 					"file": "idt.c",
 					"settings":
 					{
@@ -1277,41 +1546,13 @@
 						"selection":
 						[
 							[
-								18,
-								18
+								161,
+								161
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/C++/C.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 14,
-					"file": "idt.h",
-					"settings":
-					{
-						"buffer_size": 144,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.tmLanguage",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},

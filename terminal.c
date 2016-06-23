@@ -21,6 +21,7 @@ struct command {
 };
 
 extern int last_writable, furthest_writable, csr_x, csr_y;
+extern int cmd_history_scroll_up, cmd_history_scroll_down;
 
 struct command command_list[] = 
 { 
@@ -66,7 +67,7 @@ int stop = 0;
 
 char cmd_history[CMD_HISTORY_LENGTH][MAX_CMD_LENGTH];
 // char username[MAX_CMD_LENGTH];
-char username[] = "user";
+char username[] = "jtong";
 
 /* start_terminal() is in system.h */
 void start_terminal()
@@ -168,7 +169,16 @@ int get_command(char *buffer, int lim)
         temp[0] = '\0'; /* Resets the temp array for each loop */
         length_to_copy = furthest_writable - (csr_y * VGA_WIDTH + csr_x);
 
-        if(csr_y * VGA_WIDTH + csr_x < furthest_writable) {
+        extern textmemptr;
+        if(cmd_history_scroll_up == 1) {
+            // puts("made it here");
+            cmd_history_scroll_up = 0;
+            extern attrib;
+            unsigned blank = 0x20 | (attrib << 8);
+
+            memcpy(textmemptr + last_writable, blank, length_to_copy * 2);
+
+        } else if(csr_y * VGA_WIDTH + csr_x < furthest_writable) {
             /* Handles buffer once arrow keys have been used to shift the cursor */
             if(c == '\b') {
                 /* Handles backspaces when cursor is in the middle of the buffer */

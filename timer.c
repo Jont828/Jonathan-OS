@@ -22,7 +22,7 @@ void timer_handler(struct regs *r)
     /* Every 18 clocks (approximately 1 second), we will
     *  display a message on the screen */
     if (timer_ticks % 18 == 0)
-    {;
+    {
         time_since_boot++;
         // puts("\nOne second has passed\n");
     }
