@@ -23,32 +23,32 @@ struct command {
 extern int last_writable, furthest_writable, csr_x, csr_y;
 extern int cmd_history_scroll_up, cmd_history_scroll_down;
 
-struct command command_list[] = 
-{ 
+struct command command_list[] =
+{
     { "help",
         "lists all commands and their descriptions",
         help },
 
-    { "exit", 
+    { "exit",
         "exits the system",
-        exit_terminal }, 
-    { "logout", 
+        exit_terminal },
+    { "logout",
         "exits the system",
-        exit_terminal }, 
+        exit_terminal },
 
-    { "clear", 
+    { "clear",
         "clears the screen",
-        cls }, 
+        cls },
 
-    { "edit", 
+    { "edit",
         "opens a simple text editor",
         editor },
 
-    {"echo", 
+    {"echo",
         "prints the arguments given",
         echo},
 
-    {"history", 
+    {"history",
         "displays command history",
         history},
 
@@ -56,9 +56,9 @@ struct command command_list[] =
         "displays current time and date [NOT FINISHED]",
         date},
 
-    {"whoami", 
+    {"whoami",
         "displays username of current user", who},
-    {"who", 
+    {"who",
         "[NOT FINISHED] displays information on users currently logged in",
         who}
 };
@@ -114,8 +114,9 @@ void start_terminal()
     char args[MAX_CMD_LENGTH];
 
     while( !stop ) {
-        puts(username);
-        puts("@jonathan-os$ ");
+        puts("shell$ ");
+        // puts(username);
+        // puts("@jonathan-os$ ");
         // puts("Enter a command: ");
         get_command(buffer, 1024);
         parse_command(buffer, cmd, args);
@@ -182,11 +183,11 @@ int get_command(char *buffer, int lim)
             /* Handles buffer once arrow keys have been used to shift the cursor */
             if(c == '\b') {
                 /* Handles backspaces when cursor is in the middle of the buffer */
-                strncpy(temp, 
+                strncpy(temp,
                     buffer + cmd_length - length_to_copy,
                     length_to_copy);
 
-                strncpy(buffer + cmd_length - 1 - length_to_copy, 
+                strncpy(buffer + cmd_length - 1 - length_to_copy,
                     temp,
                     length_to_copy);
 
@@ -195,11 +196,11 @@ int get_command(char *buffer, int lim)
                 cmd_length--;
             } else {
                 /* Handles typing when arrow keys have been used (typing into the middle of the bufffer) */
-                strncpy(temp, 
+                strncpy(temp,
                     buffer + cmd_length - length_to_copy,
                     length_to_copy);
 
-                strncpy(buffer + cmd_length + 1 - length_to_copy, 
+                strncpy(buffer + cmd_length + 1 - length_to_copy,
                     temp,
                     length_to_copy);
 
@@ -227,11 +228,11 @@ int get_command(char *buffer, int lim)
         //     /* Handles backspaces in the buffer */
         //     if(i != 0) {
         //         if(csr_y * VGA_WIDTH + csr_x < furthest_writable) {
-        //             strncpy(temp, 
+        //             strncpy(temp,
         //                 buffer + i - length_to_copy,
         //                 length_to_copy);
 
-        //             strncpy(buffer + i - 1 - length_to_copy, 
+        //             strncpy(buffer + i - 1 - length_to_copy,
         //                 temp,
         //                 length_to_copy);
 
@@ -247,11 +248,11 @@ int get_command(char *buffer, int lim)
         //     }
         // } else if(csr_y * VGA_WIDTH + csr_x < furthest_writable) {
 
-        //     strncpy(temp, 
+        //     strncpy(temp,
         //         buffer + i - length_to_copy,
         //         length_to_copy);
 
-        //     strncpy(buffer + i + 1 - length_to_copy, 
+        //     strncpy(buffer + i + 1 - length_to_copy,
         //         temp,
         //         length_to_copy);
 

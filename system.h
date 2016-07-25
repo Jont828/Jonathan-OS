@@ -1,6 +1,6 @@
 #ifndef __SYSTEM_H
 	#define __SYSTEM_H
-#endif	
+#endif
 
 /* SYSTEM.C */
 
@@ -20,11 +20,11 @@
 	void reverse(char str[]);
 	void putint();
 	int power(int num, int power);
-	int isalpha(char c); 
+	int isalpha(char c);
 	void put_buffer(char *text);
 	void process_buffer(char *dest, char *raw);
 	char *strncpy(char *dest, const char *src, int n);
- 
+
 /* UTILITIES.C */
 
 /* SCRN.C */
@@ -122,7 +122,7 @@
 	    unsigned int gs, fs, es, ds;      /* pushed the segs last */
 	    unsigned int edi, esi, ebp, esp, ebx, edx, ecx, eax;  /* pushed by 'pusha' */
 	    unsigned int int_no, err_code;    /* our 'push byte #' and ecodes do this */
-	    unsigned int eip, cs, eflags, useresp, ss;   /* pushed by the processor automatically */ 
+	    unsigned int eip, cs, eflags, useresp, ss;   /* pushed by the processor automatically */
 	};
 
 	void isrs_install(); // To be called in main()
