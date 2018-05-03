@@ -114,9 +114,10 @@ void start_terminal()
     char args[MAX_CMD_LENGTH];
 
     while( !stop ) {
-        puts("shell$ ");
-        // puts(username);
-        // puts("@jonathan-os$ ");
+        // puts("shell$ ");
+        puts("[");
+        puts(username);
+        puts("@jonathan-os]$ ");
         // puts("Enter a command: ");
         get_command(buffer, 1024);
         parse_command(buffer, cmd, args);

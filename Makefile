@@ -1,7 +1,7 @@
 OBJECTS = loader.o system.o utilities.o kmain.o scrn.o serial.o gdt.o idt.o isrs.o irq.o timer.o kb.o edit.o terminal.o
 CC = gcc
-CFLAGS = -m32 -nostdlib -nostdinc -fno-builtin -fno-stack-protector -nostartfiles -nodefaultlibs -Wall -Wextra -c #-Werror -c
-LDFLAGS = -T link.ld -melf_i386
+CFLAGS = -m32 -nostdlib -nostdinc -fno-builtin -fno-stack-protector -nostartfiles -nodefaultlibs -Wall -Wextra -c -fno-pie #-Werror -c
+LDFLAGS = -T link.ld -melf_i386 --ignore-unresolved-symbol _GLOBAL_OFFSET_TABLE_
 AS = nasm
 ASFLAGS = -f elf
 
@@ -24,7 +24,7 @@ os.iso: kernel.elf
 		iso
 
 run: os.iso
-	bochs -f bochsrc.txt -q
+	bochs -f .bochsrc -q
 
 %.o: %.c
 	$(CC) $(CFLAGS)  $< -o $@
