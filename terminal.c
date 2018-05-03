@@ -11,6 +11,7 @@ void echo(char text[]);
 void history();
 void who(char text[]);
 void date();
+void uptime();
 
 void shift_history();
 
@@ -55,6 +56,10 @@ struct command command_list[] =
     {"date",
         "displays current time and date [NOT FINISHED]",
         date},
+
+    {"uptime",
+        "tell how long the system has been running",
+        uptime},
 
     {"whoami",
         "displays username of current user", who},
@@ -365,6 +370,13 @@ void who(char text[]) {
 }
 
 void date() {
+    extern int time_since_boot;
+    puts("System has been active for ");
+    putint(time_since_boot);
+    puts(" seconds\n");
+}
+
+void uptime() {
     extern int time_since_boot;
     puts("System has been active for ");
     putint(time_since_boot);
