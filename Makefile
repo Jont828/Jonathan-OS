@@ -7,12 +7,14 @@ ASFLAGS = -f elf
 
 all: kernel.elf
 
+fresh: clean kernel.elf
+
 kernel.elf: $(OBJECTS)
 	ld $(LDFLAGS) $(OBJECTS) -o kernel.elf
 
 os.iso: kernel.elf
 	cp kernel.elf iso/boot/kernel.elf
-	genisoimage -R                          \
+	genisoimage -R                      \
 		-b boot/grub/stage2_eltorito    \
 		-no-emul-boot                   \
 		-boot-load-size 4               \
@@ -24,7 +26,8 @@ os.iso: kernel.elf
 		iso
 
 run: os.iso
-	bochs -f .bochsrc -q
+	-bochs -f .bochsrc -q
+	$(MAKE) clean
 
 %.o: %.c
 	$(CC) $(CFLAGS)  $< -o $@

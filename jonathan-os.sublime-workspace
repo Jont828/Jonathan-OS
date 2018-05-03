@@ -520,23 +520,6 @@
 	"buffers":
 	[
 		{
-			"file": "Makefile",
-			"settings":
-			{
-				"buffer_size": 995,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "bochsrc.txt",
-			"settings":
-			{
-				"buffer_size": 403,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
 			"file": "link.ld",
 			"settings":
 			{
@@ -552,13 +535,6 @@
 			{
 				"buffer_size": 8672,
 				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"settings":
-			{
-				"buffer_size": 0,
 				"line_ending": "Unix"
 			}
 		},
@@ -583,7 +559,7 @@
 			"file": "terminal.c",
 			"settings":
 			{
-				"buffer_size": 10090,
+				"buffer_size": 10107,
 				"line_ending": "Unix"
 			}
 		},
@@ -642,6 +618,8 @@
 	],
 	"file_history":
 	[
+		"/home/jtong/Dropbox/Programming/Jonathan-OS/Makefile",
+		"/home/jtong/Dropbox/Programming/Jonathan-OS/bochsrc.txt",
 		"/home/jtong/Dropbox/Programming/Jonathan-OS/bochslog.txt",
 		"/home/jtong/Dropbox/Programming/Jonathan-OS/edit.c",
 		"/home/jtong/Dropbox/Programming/Jonathan-OS/kb.c",
@@ -767,13 +745,11 @@
 		"/home/ctong/Desktop/Linux Programming/Java/Database/Database.java",
 		"/home/ctong/Desktop/Linux Programming/Java/Database/Person.java",
 		"/home/ctong/Desktop/Linux Programming/Java/StringEquals.java",
-		"/home/ctong/Desktop/Linux Programming/Java/test.java",
-		"/home/ctong/Desktop/Linux Programming/Java/Subject17.java",
-		"/home/ctong/Desktop/Linux Programming/Java/Encrypt.java"
+		"/home/ctong/Desktop/Linux Programming/Java/test.java"
 	],
 	"find":
 	{
-		"height": 96.0
+		"height": 51.0
 	},
 	"find_in_files":
 	{
@@ -1032,69 +1008,11 @@
 	"groups":
 	[
 		{
-			"selected": 4,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "Makefile",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 995,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"git_gutter_is_enabled": true,
-							"syntax": "Packages/Makefile/Makefile.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 420.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 7,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "bochsrc.txt",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 403,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								64,
-								64
-							]
-						],
-						"settings":
-						{
-							"git_gutter_is_enabled": true,
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 6,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
 					"file": "link.ld",
 					"semi_transient": false,
 					"settings":
@@ -1106,8 +1024,8 @@
 						"selection":
 						[
 							[
-								226,
-								226
+								284,
+								284
 							]
 						],
 						"settings":
@@ -1115,18 +1033,18 @@
 							"auto_name": "OUTPUT_FORMAT(\"binary\")",
 							"git_gutter_is_enabled": true,
 							"syntax": "Packages/Text/Plain text.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": false
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
-					"buffer": 3,
+					"buffer": 1,
 					"file": "loader.s",
 					"semi_transient": false,
 					"settings":
@@ -1138,8 +1056,8 @@
 						"selection":
 						[
 							[
-								1117,
-								1117
+								1278,
+								1278
 							]
 						],
 						"settings":
@@ -1157,36 +1075,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 4,
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 0,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"default_dir": "/home/jtong/Dropbox/Programming/Jonathan-OS",
-							"git_gutter_is_enabled": false,
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
+					"buffer": 2,
 					"file": "kmain.c",
 					"semi_transient": false,
 					"settings":
@@ -1213,11 +1102,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 8,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
-					"buffer": 6,
+					"buffer": 3,
 					"file": "system.h",
 					"semi_transient": false,
 					"settings":
@@ -1247,12 +1136,12 @@
 					"type": "text"
 				},
 				{
-					"buffer": 7,
+					"buffer": 4,
 					"file": "terminal.c",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 10090,
+						"buffer_size": 10107,
 						"regions":
 						{
 						},
@@ -1274,11 +1163,11 @@
 						"translation.y": 823.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 9,
+					"stack_index": 6,
 					"type": "text"
 				},
 				{
-					"buffer": 8,
+					"buffer": 5,
 					"file": "idt.c",
 					"semi_transient": false,
 					"settings":
@@ -1305,11 +1194,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
-					"buffer": 9,
+					"buffer": 6,
 					"file": "io.s",
 					"semi_transient": false,
 					"settings":
@@ -1334,7 +1223,7 @@
 						"translation.y": 105.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 3,
 					"type": "text"
 				}
 			]
@@ -1384,10 +1273,10 @@
 		"height": 28.0
 	},
 	"pinned_build_system": "",
-	"project": "jonathan_os.sublime-project",
+	"project": "jonathan-os.sublime-project",
 	"replace":
 	{
-		"height": 180.0
+		"height": 94.0
 	},
 	"save_all_on_build": true,
 	"select_file":

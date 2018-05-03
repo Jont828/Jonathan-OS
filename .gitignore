@@ -1,5 +1,8 @@
 jonathan-os.sublime*
 bochslog.txt
+kernel.elf
+/iso/boot/kernel.elf
+com1.out
 
 # Compiled source #
 ###################

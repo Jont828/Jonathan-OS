@@ -13,6 +13,7 @@ void kmain(void)
 
     /* Initializes keyboard */
     __asm__ __volatile__ ("sti"); /* Set interrupts */
+    serial_puts(SERIAL_COM1_BASE, "Hello, serial port world!\n");
 
     puts("Booting Jonathan's OS from Bochs:\n\n");
 
@@ -24,5 +25,4 @@ void kmain(void)
 
     puts("\nGoodbye!");
 
-    serial_puts(SERIAL_COM1_BASE, "Hello, serial port world!\n");
 }
